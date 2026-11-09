@@ -6,7 +6,7 @@ import katex from 'katex';
 const SRC = 'src', OUT = 'deploy';
 const SITE = 'https://faizan-bari.github.io/jt-gravity/';
 const PROJECT = 'A Black Hole in a Box';
-const VERSION = '0.2', DATE = '9 November 2026';
+const VERSION = '0.3', DATE = '9 November 2026';
 const EMAIL = 'fbarinitsgr@gmail.com';
 const ISSUES = 'https://github.com/faizan-bari/jt-gravity/issues';
 
@@ -21,6 +21,8 @@ const PAGES = [
    desc: 'Step 3: a shock wave thrown into a JT black hole leaves the geometry alone but moves the horizon, before it arrives. Negative energy makes the wormhole traversable.'},
   {src: 'wormhole.html', title: 'Two sides, one wormhole', nav: 'contents',
    desc: 'Step 4: the renormalised length of the JT wormhole grows forever, and behaves like a particle bouncing off an exponential wall.'},
+  {src: 'bath.html', title: 'Open the box', nav: 'contents',
+   desc: 'Step 5: a JT black hole in equilibrium with a bath. Hawking\u2019s entropy grows forever; the island formula gives the Page curve, with the island just outside the horizon.'},
   {src: 'conventions.html', title: 'Conventions', nav: 'conventions',
    desc: 'The JT action, boundary conditions, equations of motion and formulas used on these pages, with a conversion table to Harlow and Jafferis.'},
   {src: 'changes.html', title: 'Changes and corrections', nav: 'changes',

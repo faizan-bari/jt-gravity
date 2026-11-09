@@ -50,6 +50,35 @@
   \[ \begin{aligned}&\tilde L=d-2\ln\frac{2\phi_b}{\varepsilon}=2\ln\left[\frac{\cosh\big(\pi(t_L+t_R)/\beta\big)}{\Phi_h}\right],\\ &\phi_b=\frac{\phi_r}{16\pi G},\qquad \Phi_h=\frac{\phi_h}{16\pi G},\end{aligned} \tag{C.15} \]
   \[ \begin{aligned}&P=2\Phi_h\tanh\frac{\pi(t_L+t_R)}{\beta},\\ &H=H_L+H_R=\frac{P^2}{2\phi_b}+\frac{2}{\phi_b}e^{-\tilde L}=\frac{2\Phi_h^2}{\phi_b}.\end{aligned} \tag{C.16} \]
 
+  <h2>The bath</h2>
+  <p>With the tortoise coordinate \(y\) (negative in AdS, positive in the bath) and boundary time \(t\), \((\ell=1)\):</p>
+  \[ \begin{aligned}&ds^2=\frac{(2\pi/\beta)^2(-dt^2+dy^2)}{\sinh^2(2\pi y/\beta)}\ \ (y&lt;0),\qquad ds^2=\frac{-dt^2+dy^2}{\varepsilon^2}\ \ (y&gt;0),\\ &\phi=\phi_h\coth\frac{2\pi|y|}{\beta},\end{aligned} \tag{C.17} \]
+  \[ w^+=e^{2\pi(t+y)/\beta},\quad w^-=-e^{-2\pi(t-y)/\beta},\qquad w^\pm=\tan\frac{\tau\pm\sigma}{2}. \tag{C.18} \]
+  <p>For a conformal field theory in the vacuum of \(ds^2=-dw^+dw^-/\Omega^2\), with cutoff \(\delta\), an interval has entropy</p>
+  \[ S=\frac{c}{6}\ln\frac{-\Delta w^+\Delta w^-}{\delta^2\,\Omega_1\Omega_2},\qquad \Omega_w=\frac{2\pi}{\beta}\,e^{2\pi y/\beta}\,\Omega_y. \tag{C.19} \]
+  <p>The island formula in JT gravity:</p>
+  \[ S(\mathbf R)=\min_{\mathbf I}\operatorname*{ext}_{\mathbf I}\Big[\sum_{\partial\mathbf I}\frac{\phi_0+\phi}{4G}+S_{\rm matter}(\mathbf R\cup\mathbf I)\Big]. \tag{C.20} \]
+
+  <h2>Conversion: Almheiri, Mahajan and Maldacena</h2>
+  <p>A. Almheiri, R. Mahajan and J. Maldacena, “Islands outside the horizon”, <a href="https://arxiv.org/abs/1910.11077">arXiv:1910.11077</a>. They set \(4G=1\) and write the action as \(\frac{1}{4\pi}\int\sqrt{-g}\,[\phi R+2(\phi-\phi_0)]\), so their \(\phi\) is the total dilaton. Equation numbers in the left column are theirs.</p>
+</div>
+<div class="tbl-wrap prose">
+  <table class="tbl">
+    <thead><tr><th scope="col">Almheiri, Mahajan, Maldacena</th><th scope="col">This site</th></tr></thead>
+    <tbody>
+      <tr><td>\(4G=1\)</td><td>\(G\) explicit</td></tr>
+      <tr><td>\(\phi\) (total dilaton)</td><td>\((\phi_0+\phi)/4G\)</td></tr>
+      <tr><td>\(\phi_r\)</td><td>\(\phi_r/4G\)</td></tr>
+      <tr><td>\(y^\pm=t\pm\sigma\), AdS metric (21)</td><td>\(t\pm y\), (C.17)</td></tr>
+      <tr><td>\(w^\pm\) (29)</td><td>(C.18)</td></tr>
+      <tr><td>\(S_{\rm gen}(a)\) (22), with \(a&gt;0\)</td><td>(5.9) with \(|a|\)</td></tr>
+      <tr><td>extremum (23), (24)</td><td>(5.10)</td></tr>
+      <tr><td>no-island entropy (32)</td><td>(5.6)</td></tr>
+      <tr><td>\(S_{\max}=2S_{\rm BH}=2(\phi_0+2\pi\phi_r/\beta)\) (33)</td><td>\(2(\phi_0+\phi_h)/4G\)</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="prose">
   <h2>Conversion: Harlow and Jafferis</h2>
   <p>D. Harlow and D. Jafferis, “The factorization problem in Jackiw–Teitelboim gravity”, <a href="https://arxiv.org/abs/1804.01081">arXiv:1804.01081</a>. They write the action without the \(1/16\pi G\) and set \(\ell=1\). Equation numbers in the left column are theirs.</p>
 </div>
@@ -77,5 +106,5 @@
 <div class="prose">
   <p class="note">They fix the size of the induced metric, \(|\gamma_{tt}|=r_c^2\); with our signature the boundary is timelike and \(\gamma_{tt}=-1/\varepsilon^2\).</p>
   <h2>Other papers</h2>
-  <p>Conversions for Maldacena, Stanford and Yang (<a href="https://arxiv.org/abs/1606.01857">arXiv:1606.01857</a>), Penington and Witten (<a href="https://arxiv.org/abs/2301.07257">arXiv:2301.07257</a>) and the papers that couple JT gravity to a bath are planned for v0.3. Each will be checked against the paper itself before it goes up.</p>
+  <p>Conversions for Maldacena, Stanford and Yang (<a href="https://arxiv.org/abs/1606.01857">arXiv:1606.01857</a>), Penington and Witten (<a href="https://arxiv.org/abs/2301.07257">arXiv:2301.07257</a>) and the papers that couple JT gravity to a bath are planned for v0.4. Each will be checked against the paper itself before it goes up.</p>
 </div>

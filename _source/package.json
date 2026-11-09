@@ -1,6 +1,6 @@
 {
   "name": "jt-gravity",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A Black Hole in a Box: an interactive introduction to JT gravity",
   "scripts": {
     "build": "node build.mjs"

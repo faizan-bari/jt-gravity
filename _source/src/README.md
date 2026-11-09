@@ -12,7 +12,7 @@ Zoom into the throat of a nearly extremal charged black hole and you find AdS₂
 2. **Where is the black hole?**: the geometry never changes; the black hole lives in the dilaton and the boundary. *(live)*
 3. **Throw something in**: matter makes the horizon jump; negative energy makes the wormhole traversable. *(live)*
 4. **Two sides, one wormhole**: the length between the two boundaries, and why it behaves like a particle bouncing off a wall. *(live)*
-5. **Open the box**: a bath, evaporation, the Page curve and the island. *(later)*
+5. **Open the box**: a bath, Hawking’s growing entropy, the island and the Page curve. *(live)*
 
 ## Corrections
 
@@ -22,4 +22,4 @@ Found an error? Open an issue here or email fbarinitsgr@gmail.com. Every correct
 
 Plain HTML, CSS and JavaScript, with no build step needed to view it. Maths is pre-rendered with [KaTeX](https://katex.org) (MIT licence), whose stylesheet and fonts are in `assets/katex/`.
 
-Version 0.2 · 9 November 2026
+Version 0.3 · 9 November 2026
