@@ -1,0 +1,198 @@
+<!--BODY-->
+<section class="page-hero">
+  <p class="mono">Step 1 of 5</p>
+  <h1>AdS₂ is a box</h1>
+  <p class="lede">Anti-de Sitter space pulls everything back toward the middle. Throw a particle outward and it comes back, like a mass on a spring. Send light outward and it reaches infinity in a finite time, then returns.</p>
+</section>
+
+<div class="prose">
+  <h2>The spacetime</h2>
+  <p>AdS₂ is the two-dimensional spacetime with constant negative curvature, \(R=-2/\ell^2\), where \(\ell\) is the AdS radius. In global coordinates</p>
+  \[ ds^2=\frac{\ell^2}{\cos^2\sigma}\left(-d\tau^2+d\sigma^2\right), \tag{1.1} \]
+  <p>where \(-\pi/2<\sigma<\pi/2\) and \(\tau\) takes all real values. Apart from the overall factor this is flat space, so light still travels at 45° in the \((\sigma,\tau)\) plane and the diagram below shows the causal structure faithfully. All of space fits in a strip of width \(\pi\). Its edges are infinitely far away: the proper distance from the centre to \(\sigma\) is \(\ell\,\mathrm{artanh}(\sin\sigma)\), which diverges as \(\sigma\to\pm\pi/2\).</p>
+</div>
+
+<figure class="fig">
+  <div class="fig-grid">
+    <svg id="f1" class="dia" viewBox="0 0 371 677" role="img" aria-labelledby="f1-cap"></svg>
+    <div class="panel">
+      <div class="ctl"><label for="f1-s0"><span>Launch point</span><output id="f1-s0o" for="f1-s0"></output></label>
+        <input id="f1-s0" type="range" min="-1.3" max="1.3" step="0.01" value="0.35"></div>
+      <div class="ctl"><label for="f1-v"><span>Launch speed</span><output id="f1-vo" for="f1-v"></output></label>
+        <input id="f1-v" type="range" min="-0.99" max="0.99" step="0.01" value="0.75"></div>
+      <div class="ctl"><label for="f1-t"><span>Time at the centre</span><output id="f1-to" for="f1-t"></output></label>
+        <input id="f1-t" type="range" min="0" max="6.2832" step="0.005" value="0"></div>
+      <div class="row"><button class="btn" id="f1-play" type="button">Play</button></div>
+      <div class="checks">
+        <label><input type="checkbox" id="f1-light" checked> Light sent both ways from the launch point</label>
+        <label><input type="checkbox" id="f1-rest" checked> A twin released at rest from the same point</label>
+        <label><input type="checkbox" id="f1-fan"> A fan of launch speeds</label>
+      </div>
+      <dl class="read">
+        <dt>Particle’s clock</dt><dd id="r-p"></dd>
+        <dt>Twin’s clock</dt><dd id="r-r"></dd>
+        <dt>Turns back at</dt><dd id="r-turn"></dd>
+        <dt>Energy, \(E/mc^2\)</dt><dd id="r-e"></dd>
+        <dt>Proper time per swing, computed numerically</dt><dd id="r-per"></dd>
+      </dl>
+    </div>
+  </div>
+  <figcaption id="f1-cap"><strong>Figure 1.</strong> AdS₂ in the coordinates of (1.1), for one full swing: \(\tau\) runs up from 0 to \(2\pi\) and \(\sigma\) across from \(-\pi/2\) to \(\pi/2\). The two vertical edges are infinitely far away. <span class="key"></span> the particle, <span class="key rest"></span> its twin, released at rest from the same point, <span class="key light"></span> light sent both ways from the launch point and reflected at the edges. The circles mark where they all meet again. Speeds are measured by an observer at rest at the launch point.</figcaption>
+</figure>
+
+<div class="prose">
+  <h2>A harmonic trap</h2>
+  <p>Near the centre, write \(x\approx\ell\sigma\) for proper distance and \(t=\ell\tau/c\) for the time on a clock at rest there. To second order in \(x\),</p>
+  \[ ds^2\approx-\left(1+\frac{x^2}{\ell^2}\right)c^2\,dt^2+dx^2. \tag{1.2} \]
+  <p>Compare with the weak-field metric, \(g_{tt}\approx-(1+2\Phi/c^2)c^2\): this is a Newtonian potential \(\Phi=c^2x^2/2\ell^2\), a harmonic trap with angular frequency \(\omega=c/\ell\). So a slow particle oscillates with period \(2\pi\ell/c\).</p>
+  <p>The surprise is what happens far from the centre. Every freely falling massive particle follows</p>
+  \[ \sin\sigma=A\sin(\tau-\tau_0),\qquad 0\le A<1, \tag{1.3} \]
+  <p>where \(A=1\) would be a light ray (the derivation is below). So every particle has the same period in \(\tau\), and the same proper time per swing,</p>
+  \[ \Delta s=\frac{2\pi\ell}{c}, \tag{1.4} \]
+  <p>however hard it was thrown. The trap stays perfectly harmonic even for particles moving close to the speed of light. The last readout beside the figure checks this by integrating the proper time numerically along whatever path you choose.</p>
+
+  <h2>Everything refocuses</h2>
+  <p>Take any event \((\tau_1,\sigma_1)\). By (1.3), every free particle passing through it also passes through the mirror event \((\tau_1+\pi,\,-\sigma_1)\), whatever its speed. So does light, if the edges reflect it. Two free-falling twins who part at one event meet again at the mirror event having aged by exactly the same amount, \(\pi\ell/c\). Turn on the fan of launch speeds to see it.</p>
+  <p>The centre \(\sigma=0\) is not a special place. AdS₂ is homogeneous: a symmetry can carry any free faller to the centre. Every path in the figure swings about \(\sigma=0\) only because these coordinates were built around one particular free faller, the one at rest at \(\sigma=0\).</p>
+
+  <h2>Light reaches infinity</h2>
+  <p>A light ray leaving the centre reaches the edge at \(\Delta\tau=\pi/2\), a finite time, even though the edge is infinitely far away. What happens next is not decided by the equations inside. AdS needs a boundary condition at its edge, and with the standard reflecting one the light comes straight back. That is what makes AdS a box: nothing leaks out. In step 5 we will change this boundary condition and let radiation escape into a bath.</p>
+
+  <details class="deriv">
+    <summary>Derivation of (1.3) and (1.4)</summary>
+    <p>Set \(c=1\) and let \(s\) be the particle’s proper time. The metric (1.1) does not depend on \(\tau\), so there is a conserved energy per unit mass,</p>
+    \[ e=\frac{\ell}{\cos^2\sigma}\,\frac{d\tau}{ds}, \tag{1.5} \]
+    <p>normalised so that \(e=1\) for a particle at rest at the centre. The condition \(u^\mu u_\mu=-1\) reads</p>
+    \[ \frac{\ell^2}{\cos^2\sigma}\left[\left(\frac{d\tau}{ds}\right)^2-\left(\frac{d\sigma}{ds}\right)^2\right]=1. \tag{1.6} \]
+    <p>Divide (1.6) by \((d\tau/ds)^2\) and use (1.5) to eliminate \(d\tau/ds\):</p>
+    \[ \left(\frac{d\sigma}{d\tau}\right)^2=1-\frac{1}{e^2\cos^2\sigma}. \tag{1.7} \]
+    <p>Now try \(\sin\sigma=A\sin(\tau-\tau_0)\). Differentiating gives \(\cos\sigma\,(d\sigma/d\tau)=A\cos(\tau-\tau_0)\), and squaring,</p>
+    \[ \begin{aligned}\cos^2\sigma\left(\frac{d\sigma}{d\tau}\right)^2&=A^2-\sin^2\sigma,\\ \left(\frac{d\sigma}{d\tau}\right)^2&=1-\frac{1-A^2}{\cos^2\sigma},\end{aligned} \tag{1.8} \]
+    <p>which is (1.7) with \(A^2=1-1/e^2\). Every starting point and speed fixes one \(A\) and one \(\tau_0\), so these are all the free-fall paths. A particle launched from \(\sigma_0\) with local speed \(v\) has \(A^2=\sin^2\sigma_0+v^2\cos^2\sigma_0\). It turns back where \(\sin\sigma=A\), at a proper distance \(\ell\,\mathrm{artanh}\,A=\ell\,\mathrm{arccosh}\,e\) from the centre.</p>
+    <p>For the proper time, (1.5) gives \(ds=\ell\,d\tau/(e\cos^2\sigma)\) with \(\cos^2\sigma=1-A^2\sin^2(\tau-\tau_0)\). Over one period,</p>
+    \[ \Delta s=\frac{\ell}{e}\int_0^{2\pi}\frac{du}{1-A^2\sin^2u}=\frac{\ell}{e}\,\frac{2\pi}{\sqrt{1-A^2}}=2\pi\ell, \tag{1.9} \]
+    <p>because \(\sqrt{1-A^2}=1/e\). The integrand has period \(\pi\), so any stretch of length \(\pi\) in \(\tau\) gives exactly half of this. That is the twins’ \(\pi\ell\).</p>
+  </details>
+
+  <h2>What this does not show</h2>
+  <p>Everything here is a fixed AdS₂ with no dilaton yet, so there is no black hole and no boundary curve. Those come in step 2, on exactly this strip.</p>
+  <p class="note">The facts on this page are standard. For AdS₂ in these coordinates see Harlow and Jafferis, <a href="https://arxiv.org/abs/1804.01081">arXiv:1804.01081</a>, §2.1, where \(x=\tan\sigma\).</p>
+</div>
+
+<nav class="pager" aria-label="Steps"><a href="index.html">Contents</a><a href="black-hole.html">Step 2: Where is the black hole? →</a></nav>
+<!--JS-->
+(function(){
+  var PI = Math.PI, el = JT.el, svg = document.getElementById('f1');
+  var K = 100, L = 40, T = 14;
+  function X(s){ return L + (s + PI / 2) * K; }
+  function Y(t){ return T + (2 * PI - t) * K; }
+
+  // Static frame
+  el('rect', {x: X(-PI / 2), y: Y(2 * PI), width: PI * K, height: 2 * PI * K, 'class': 'strip'}, svg);
+  [0.5, 1, 1.5].forEach(function(m){ el('line', {x1: X(-PI / 2), x2: X(PI / 2), y1: Y(m * PI), y2: Y(m * PI), 'class': 'grid'}, svg); });
+  el('line', {x1: X(0), x2: X(0), y1: Y(0), y2: Y(2 * PI), 'class': 'grid'}, svg);
+  [-1, 1].forEach(function(s){ el('line', {x1: X(s * PI / 2), x2: X(s * PI / 2), y1: Y(0), y2: Y(2 * PI), 'class': 'edge'}, svg); });
+  [['0', 0], ['π/2', .5], ['π', 1], ['3π/2', 1.5], ['2π', 2]].forEach(function(a){
+    JT.text(svg, L - 6, Y(a[1] * PI) + 4, a[0], 'lab', {'text-anchor': 'end'});
+  });
+  [['−π/2', -PI / 2], ['0', 0], ['π/2', PI / 2]].forEach(function(a){
+    JT.text(svg, X(a[1]), Y(0) + 17, a[0], 'lab', {'text-anchor': 'middle'});
+  });
+  JT.text(svg, X(0), Y(0) + 30, 'σ', 'lab', {'text-anchor': 'middle'});
+  var gPaths = el('g', {}, svg), gNow = el('g', {}, svg);
+
+  // Physics (l = c = 1)
+  function geo(s0, v){
+    var A = Math.sqrt(Math.pow(Math.sin(s0), 2) + Math.pow(v * Math.cos(s0), 2));
+    return {A: Math.min(A, 0.9999999), t0: -Math.atan2(Math.sin(s0), v * Math.cos(s0))};
+  }
+  function sig(g, t){ return Math.asin(g.A * Math.sin(t - g.t0)); }
+  function theta(u, k){ var s = Math.sin(u), c = Math.cos(u); return u - Math.atan((1 - k) * s * c / (c * c + k * s * s)); }
+  function prop(g, t){ var k = Math.sqrt(1 - g.A * g.A); return theta(t - g.t0, k) - theta(-g.t0, k); }
+  function periodNumeric(g){
+    var k = Math.sqrt(1 - g.A * g.A), N = 20000, h = 2 * PI / N, sum = 0;
+    for (var i = 0; i <= N; i++){
+      var s = Math.sin(i * h - g.t0), f = k / (1 - g.A * g.A * s * s);
+      sum += f * (i === 0 || i === N ? 1 : (i % 2 ? 4 : 2));
+    }
+    return sum * h / 3;
+  }
+  function fold(p){ var q = ((p + PI / 2) % (2 * PI) + 2 * PI) % (2 * PI); return q <= PI ? q - PI / 2 : 3 * PI / 2 - q; }
+  function curve(f){ var a = []; for (var i = 0; i <= 480; i++){ var t = 2 * PI * i / 480; a.push([X(f(t)), Y(t)]); } return JT.pts(a); }
+  function lightPath(s0, d){
+    var ts = [0, 2 * PI], first = d > 0 ? PI / 2 - s0 : s0 + PI / 2;
+    for (var n = 0; n < 3; n++){ var tr = first + n * PI; if (tr > 0 && tr < 2 * PI) ts.push(tr); }
+    ts.sort(function(a, b){ return a - b; });
+    return JT.pts(ts.map(function(t){ return [X(fold(s0 + d * t)), Y(t)]; }));
+  }
+
+  var st = {s0: 0.35, v: 0.75, tau: 0, light: true, rest: true, fan: false};
+  var g, gr;
+
+  function drawPaths(){
+    gPaths.textContent = '';
+    g = geo(st.s0, st.v); gr = geo(st.s0, 0);
+    if (st.fan) [-0.95, -0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75, 0.95].forEach(function(v){
+      var gg = geo(st.s0, v); el('polyline', {points: curve(function(t){ return sig(gg, t); }), 'class': 'fan'}, gPaths);
+    });
+    if (st.light) [1, -1].forEach(function(d){ el('polyline', {points: lightPath(st.s0, d), 'class': 'lt'}, gPaths); });
+    if (st.rest) el('polyline', {points: curve(function(t){ return sig(gr, t); }), 'class': 'wl2'}, gPaths);
+    el('polyline', {points: curve(function(t){ return sig(g, t); }), 'class': 'wl'}, gPaths);
+    el('circle', {cx: X(st.s0), cy: Y(0), r: 4, 'class': 'start'}, gPaths);
+    var sm = -st.s0;
+    el('circle', {cx: X(sm), cy: Y(PI), r: 8, 'class': 'meet'}, gPaths);
+    el('circle', {cx: X(st.s0), cy: Y(2 * PI), r: 8, 'class': 'meet'}, gPaths);
+    var right = sm > 0.02;
+    JT.text(gPaths, X(sm) + (right ? -13 : 13), Y(PI) - 11, 'all meet here', 'lab ink', {'text-anchor': right ? 'end' : 'start'});
+    var x0 = Math.atanh(Math.sin(st.s0));
+    document.getElementById('f1-s0o').textContent = Math.abs(x0) < 0.005 ? 'at the centre' : JT.fmt(Math.abs(x0), 2) + 'ℓ ' + (x0 > 0 ? 'right' : 'left') + ' of the centre';
+    document.getElementById('f1-vo').textContent = Math.abs(st.v) < 0.005 ? 'at rest' : JT.fmt(Math.abs(st.v), 2) + 'c to the ' + (st.v > 0 ? 'right' : 'left');
+    document.getElementById('r-turn').textContent = JT.fmt(Math.atanh(g.A), 2) + 'ℓ from centre';
+    document.getElementById('r-e').textContent = JT.fmt(1 / Math.sqrt(1 - g.A * g.A), 3);
+    document.getElementById('r-per').textContent = JT.fmt(periodNumeric(g), 4) + ' ℓ/c';
+    drawNow();
+  }
+  function drawNow(){
+    gNow.textContent = '';
+    var t = st.tau;
+    el('line', {x1: X(-PI / 2), x2: X(PI / 2), y1: Y(t), y2: Y(t), 'class': 'now'}, gNow);
+    if (st.light){
+      el('circle', {cx: X(fold(st.s0 + t)), cy: Y(t), r: 3.6, 'class': 'ldot'}, gNow);
+      el('circle', {cx: X(fold(st.s0 - t)), cy: Y(t), r: 3.6, 'class': 'ldot'}, gNow);
+    }
+    if (st.rest) el('circle', {cx: X(sig(gr, t)), cy: Y(t), r: 5.5, 'class': 'dot2'}, gNow);
+    el('circle', {cx: X(sig(g, t)), cy: Y(t), r: 6.5, 'class': 'dot'}, gNow);
+    document.getElementById('f1-to').textContent = JT.fmt(t, 3) + ' ℓ/c';
+    document.getElementById('r-p').textContent = JT.fmt(prop(g, t), 3) + ' ℓ/c';
+    document.getElementById('r-r').textContent = st.rest ? JT.fmt(prop(gr, t), 3) + ' ℓ/c' : '—';
+  }
+
+  function bindRange(id, key, redraw){
+    var inp = document.getElementById(id);
+    inp.addEventListener('input', function(){ st[key] = parseFloat(inp.value); redraw(); });
+  }
+  bindRange('f1-s0', 's0', drawPaths);
+  bindRange('f1-v', 'v', drawPaths);
+  var tIn = document.getElementById('f1-t');
+  tIn.addEventListener('input', function(){ stop(); st.tau = parseFloat(tIn.value); drawNow(); });
+  ['light', 'rest', 'fan'].forEach(function(k){
+    var c = document.getElementById('f1-' + k);
+    c.addEventListener('change', function(){ st[k] = c.checked; drawPaths(); });
+  });
+
+  var playBtn = document.getElementById('f1-play'), raf = 0, last = 0;
+  function frame(ts){
+    if (!last) last = ts;
+    st.tau += (ts - last) / 1000 * 0.75; last = ts;
+    if (st.tau >= 2 * PI){ st.tau = 2 * PI; stop(); }
+    tIn.value = st.tau; drawNow();
+    if (raf) raf = requestAnimationFrame(frame);
+  }
+  function stop(){ if (raf) cancelAnimationFrame(raf); raf = 0; last = 0; playBtn.textContent = 'Play'; }
+  playBtn.addEventListener('click', function(){
+    if (raf){ stop(); return; }
+    if (st.tau >= 2 * PI - 1e-6) st.tau = 0;
+    playBtn.textContent = 'Pause'; raf = requestAnimationFrame(frame);
+  });
+  drawPaths();
+})();

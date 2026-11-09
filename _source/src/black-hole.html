@@ -1,0 +1,290 @@
+<!--BODY-->
+<section class="page-hero">
+  <p class="mono">Step 2 of 5</p>
+  <h1>Where is the black hole?</h1>
+  <p class="lede">In JT gravity the geometry is always the same AdS₂, so there is no way to drop a black hole into it. The black hole is written in a second field, the dilaton, and in where the boundary sits.</p>
+</section>
+
+<div class="prose">
+  <h2>Gravity without curvature</h2>
+  <p>JT gravity has a metric \(g_{\mu\nu}\) and a scalar \(\phi\), the dilaton. The action is eq. (C.1) on the <a href="conventions.html">conventions page</a>. In the charged black hole we zoomed into, \(\phi_0+\phi\) measures the area of the sphere at each point of the throat: \(\phi_0\) is its value at extremality and \(\phi\ll\phi_0\) is the small excess. The equations of motion are</p>
+  \[ R=-\frac{2}{\ell^2}, \tag{2.1} \]
+  \[ \nabla_\mu\nabla_\nu\phi-g_{\mu\nu}\nabla^2\phi+\frac{1}{\ell^2}\,g_{\mu\nu}\,\phi=-8\pi G\,T_{\mu\nu}. \tag{2.2} \]
+  <p>The first comes from varying \(\phi\). It fixes the metric to be AdS₂ everywhere, whatever the matter is doing, as long as the matter does not couple to \(\phi\) directly (the standard choice). All of gravity’s response to matter sits in (2.2), which is an equation for \(\phi\). There are no gravitational waves in two dimensions, and in JT there is not even any curvature that can change.</p>
+  <p>In vacuum, (2.2) reduces to \(\nabla_\mu\nabla_\nu\phi=g_{\mu\nu}\phi/\ell^2\). Its solutions are the linear functions of the embedding coordinates (C.6), and the one describing a black hole with two boundaries is</p>
+  \[ \phi=\phi_h\,\frac{\cos\tau}{\cos\sigma}. \tag{2.3} \]
+  <p>The others are this one moved by a symmetry of AdS₂, or turn negative at one of the edges, which the boundary conditions rule out (Harlow and Jafferis, §2.1).</p>
+</div>
+
+<figure class="fig">
+  <div class="fig-grid">
+    <svg id="f2" class="dia" viewBox="0 0 401 677" role="img" aria-labelledby="f2-cap"></svg>
+    <div class="panel">
+      <div class="ctl"><label for="f2-beta"><span>Inverse temperature \(\beta\)</span><output id="f2-betao" for="f2-beta"></output></label>
+        <input id="f2-beta" type="range" min="1" max="20" step="0.0001" value="6.2832"></div>
+      <div class="checks"><label><input type="checkbox" id="f2-ctr" checked> Lines of constant \(\phi\)</label></div>
+      <dl class="read">
+        <dt>\(\phi_h/\phi_r\)</dt><dd id="r-ph"></dd>
+        <dt>Entropy, \(S-S_0\)</dt><dd id="r-s"></dd>
+        <dt>Energy, \(E\)</dt><dd id="r-en"></dd>
+        <dt>At the pointer</dt><dd id="r-pt">hover or tap the diagram</dd>
+      </dl>
+      <div class="ctl"><label for="f2-s1"><span>Release point</span><output id="f2-s1o" for="f2-s1"></output></label>
+        <input id="f2-s1" type="range" min="0.25" max="1.45" step="0.01" value="1"></div>
+      <div class="row"><button class="btn" id="f2-drop" type="button">Drop a particle</button><button class="btn ghost" id="f2-reset" type="button">Reset</button></div>
+      <dl class="read">
+        <dt>Proper time to the horizon</dt><dd id="r-sx"></dd>
+        <dt>Boundary clock</dt><dd id="r-t">—</dd>
+      </dl>
+      <table class="sigs" aria-label="Signals sent by the falling particle">
+        <thead><tr><th scope="col">Signal</th><th scope="col">Sent at \(s\)</th><th scope="col">Arrives at \(t\)</th></tr></thead>
+        <tbody id="f2-rows"></tbody>
+      </table>
+    </div>
+  </div>
+  <figcaption id="f2-cap"><strong>Figure 2.</strong> The two-sided JT black hole on the AdS₂ strip, with \(\tau\) running from \(-\pi\) to \(\pi\). <span class="key bdy"></span> the two boundaries (2.4), ticked every unit of boundary time \(t\) by (2.7). <span class="key"></span> the event horizons, where \(\phi=\phi_h\). <span class="key ihz"></span> the inner horizons, where \(\phi=-\phi_h\); the hatched regions beyond them are not determined by the boundaries. Thin lines are lines of constant \(\phi\). Times are in units of \(\ell/c\), and \(\ell=1\) in the readouts.</figcaption>
+</figure>
+
+<div class="prose">
+  <h2>The boundary</h2>
+  <p>The dilaton is large near the edges, where the throat opens out into the rest of the black hole. JT gravity puts its boundary on the curve where</p>
+  \[ \phi\big|_{\text{bdy}}=\frac{\phi_r}{\varepsilon},\qquad \gamma_{tt}=-\frac{1}{\varepsilon^2},\qquad \varepsilon\to0, \tag{2.4} \]
+  <p>where \(\gamma_{tt}\) is the induced metric, which defines the boundary time \(t\). As \(\varepsilon\to0\) the curve hugs the edge, but only while \(-\pi/2<\tau<\pi/2\). Outside that range \(\cos\tau<0\), so \(\phi\) is negative near the edge and can never reach \(\phi_r/\varepsilon\). The boundary’s entire history, \(t\) from \(-\infty\) to \(\infty\), fits between \(\tau=-\pi/2\) and \(\tau=\pi/2\).</p>
+
+  <h2>The horizon</h2>
+  <p>The right boundary ends at the corner \((\sigma,\tau)=(\pi/2,\pi/2)\). The last light ray to reach it travels along \(\sigma=\tau\), and nothing above that line can ever send a signal to the right boundary, so \(\sigma=\tau\) is its future event horizon. The lines \(\sigma=\pm\tau\) cut the strip into four regions: the two exteriors, the black hole interior above and the white hole interior below. They cross at the centre, the bifurcation point.</p>
+  <p>On these lines \(\cos\tau=\cos\sigma\), so \(\phi=\phi_h\) all along them: the horizon’s area is constant, as it should be for a black hole in equilibrium. Look at the lines of constant \(\phi\). Outside the horizons they are timelike, so with a rocket you can hover at a fixed sphere size. Inside they are spacelike, and \(\phi\) decreases toward the future whatever you do, just as \(r\) does inside a Schwarzschild horizon.</p>
+  <p>The dashed lines where \(\phi=-\phi_h\) are where the charged black hole has its inner horizon. Beyond them the solution is not determined by data at the two boundaries, so the diagram stops there (Harlow and Jafferis, Fig. 2).</p>
+
+  <h2>Temperature only moves the clock</h2>
+  <p>Near the right boundary, set \(\ell=1\). The coordinates</p>
+  \[ ds^2=-(r^2-r_h^2)\,dt^2+\frac{dr^2}{r^2-r_h^2},\qquad \phi=\phi_r\,r, \tag{2.5} \]
+  <p>cover the right exterior, with \(r_h=\phi_h/\phi_r\) and \(t\) the boundary time of (2.4). Requiring the Euclidean continuation \(t\to-it_E\) to be smooth at \(r=r_h\) fixes the period of \(t_E\), which is the inverse temperature:</p>
+  \[ \beta=\frac{2\pi}{r_h}=\frac{2\pi\phi_r}{\phi_h}. \tag{2.6} \]
+  <p>Boundary time and global time are related by</p>
+  \[ \tan\frac{\tau}{2}=\tanh\frac{\pi t}{\beta},\qquad\text{or equivalently}\qquad \cos\tau=\frac{1}{\cosh(2\pi t/\beta)}, \tag{2.7} \]
+  <p>so \(\tau\to\pi/2\) as \(t\to\infty\). Move the temperature slider: nothing in the picture changes except the ticks of the boundary clock. At higher temperature the ticks crowd into the corner sooner.</p>
+  <p>The Bekenstein–Hawking entropy is the horizon value of \(\phi_0+\phi\), and the energy above extremality then follows from the first law, \(dE=T\,dS\):</p>
+  \[ S=\frac{\phi_0+\phi_h}{4G}=S_0+\frac{2\pi\phi_r}{4G\,\beta},\qquad E=\frac{\pi\phi_r}{4G\,\beta^2}. \tag{2.8} \]
+
+  <h2>Falling in</h2>
+  <p>Release a particle from rest on the \(\tau=0\) slice at \(\sigma_1\). By (1.3) it follows</p>
+  \[ \sin\sigma=\sin\sigma_1\cos\tau, \tag{2.9} \]
+  <p>and crosses the horizon \(\sigma=\tau\) where \(\tan\tau_\times=\sin\sigma_1\). Its proper time is finite there. From (1.5), with \(e=1/\cos\sigma_1\), \(ds=\ell\cos\sigma_1\,d\tau/(1-\sin^2\sigma_1\cos^2\tau)\), which integrates to</p>
+  \[ \tan\frac{s}{\ell}=\frac{\tan\tau}{\cos\sigma_1}\qquad\Longrightarrow\qquad s_\times=\ell\,\sigma_1 . \tag{2.10} \]
+  <p>As it falls, the particle sends a light signal to the right boundary every \(s_\times/6\) of its own time. A signal sent from \((\sigma_e,\tau_e)\) reaches the boundary at global time \(\tau_e+\pi/2-\sigma_e\), and (2.7) turns that into boundary time. The signals arrive further and further apart. The one sent from the horizon arrives at \(t=\infty\), and signals sent from inside never arrive.</p>
+  <p>Close to the horizon the delay grows logarithmically: each time the particle halves its remaining time to the crossing, the arrival time at the boundary grows by \((\beta/2\pi)\ln 2\). This exponential stretching between the infaller’s clock and the boundary’s clock is the core of the standard argument that Hawking radiation is thermal at temperature \(1/\beta\).</p>
+
+  <h2>What comes next</h2>
+  <p>Nothing here has any matter in it. In step 3 we throw something in. The metric will stay AdS₂, but the dilaton will change, the boundary curve will bend, and the horizon will jump outward.</p>
+
+  <h2>Sources</h2>
+  <ol class="refs">
+    <li>D. Harlow and D. Jafferis, “The factorization problem in Jackiw–Teitelboim gravity”, <a href="https://arxiv.org/abs/1804.01081">arXiv:1804.01081</a>, §2.1 and Fig. 2. Their eqs. (2.16), (2.18), (2.22) and (3.14) are our (2.3), (2.5), (2.7) and (2.8), converted with the table on the <a href="conventions.html">conventions page</a>.</li>
+    <li>A. Almheiri and J. Polchinski, “Models of AdS₂ backreaction and holography”, <a href="https://arxiv.org/abs/1402.6334">arXiv:1402.6334</a>.</li>
+    <li>P. Nayak, A. Shukla, R. M. Soni, S. P. Trivedi and V. Vishal, “On the dynamics of near-extremal black holes”, <a href="https://arxiv.org/abs/1802.09547">arXiv:1802.09547</a>: how JT gravity arises from the throat of a near-extremal black hole.</li>
+  </ol>
+</div>
+
+<nav class="pager" aria-label="Steps"><a href="box.html">← Step 1: AdS₂ is a box</a><a href="index.html">Contents</a></nav>
+<!--JS-->
+(function(){
+  var PI = Math.PI, el = JT.el, svg = document.getElementById('f2');
+  var K = 100, L = 40, T = 14;
+  function X(s){ return L + (s + PI / 2) * K; }
+  function Y(t){ return T + (PI - t) * K; }
+  function P(s, t){ return [X(s), Y(t)]; }
+  function $(id){ return document.getElementById(id); }
+
+  // Static frame
+  var defs = el('defs', {}, svg), pat = el('pattern', {id: 'hatch-f2', width: 7, height: 7, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)'}, defs);
+  el('line', {x1: 0, y1: 0, x2: 0, y2: 7, 'class': 'hatch'}, pat);
+  el('rect', {x: X(-PI / 2), y: Y(PI), width: PI * K, height: 2 * PI * K, 'class': 'strip'}, svg);
+  [[1, 1], [-1, 1], [1, -1], [-1, -1]].forEach(function(q){
+    var sx = q[0], st = q[1];
+    el('polygon', {points: JT.pts([P(sx * PI / 2, st * PI / 2), P(sx * PI / 2, st * PI), P(0, st * PI)]), fill: 'url(#hatch-f2)'}, svg);
+    el('line', {x1: X(sx * PI / 2), x2: X(sx * PI / 2), y1: Y(st * PI / 2), y2: Y(st * PI), 'class': 'beyond-edge'}, svg);
+  });
+  el('line', {x1: X(-PI / 2), x2: X(PI / 2), y1: Y(0), y2: Y(0), 'class': 'grid'}, svg);
+  var gCtr = el('g', {}, svg);
+  // Horizons and inner horizons
+  el('polyline', {points: JT.pts([P(-PI / 2, -PI / 2), P(PI / 2, PI / 2)]), 'class': 'hz'}, svg);
+  el('polyline', {points: JT.pts([P(-PI / 2, PI / 2), P(PI / 2, -PI / 2)]), 'class': 'hz'}, svg);
+  el('polyline', {points: JT.pts([P(-PI / 2, PI / 2), P(0, PI), P(PI / 2, PI / 2)]), 'class': 'ihz'}, svg);
+  el('polyline', {points: JT.pts([P(-PI / 2, -PI / 2), P(0, -PI), P(PI / 2, -PI / 2)]), 'class': 'ihz'}, svg);
+  // Boundaries
+  [-1, 1].forEach(function(s){ el('line', {x1: X(s * PI / 2) - s * 1.7, x2: X(s * PI / 2) - s * 1.7, y1: Y(PI / 2), y2: Y(-PI / 2), 'class': 'bdy'}, svg); });
+  var gTicks = el('g', {}, svg), gDrop = el('g', {}, svg), gProbe = el('g', {}, svg);
+  // Labels
+  [['−π', -PI], ['−π/2', -PI / 2], ['0', 0], ['π/2', PI / 2], ['π', PI]].forEach(function(a){
+    JT.text(svg, L - 6, Y(a[1]) + 4, a[0], 'lab', {'text-anchor': 'end'});
+  });
+  [['−π/2', -PI / 2], ['0', 0], ['π/2', PI / 2]].forEach(function(a){ JT.text(svg, X(a[1]), Y(-PI) + 17, a[0], 'lab', {'text-anchor': 'middle'}); });
+  JT.text(svg, X(0), Y(-PI) + 30, 'σ', 'lab', {'text-anchor': 'middle'});
+  JT.text(svg, X(1.02), Y(-0.55), 'right', 'lab ink', {'text-anchor': 'middle'});
+  JT.text(svg, X(1.02), Y(-0.55) + 13, 'exterior', 'lab ink', {'text-anchor': 'middle'});
+  JT.text(svg, X(-1.02), Y(-0.55), 'left', 'lab ink', {'text-anchor': 'middle'});
+  JT.text(svg, X(-1.02), Y(-0.55) + 13, 'exterior', 'lab ink', {'text-anchor': 'middle'});
+  JT.text(svg, X(-0.5), Y(1.2), 'black hole', 'lab ink', {'text-anchor': 'middle'});
+  JT.text(svg, X(-0.5), Y(1.2) + 13, 'interior', 'lab ink', {'text-anchor': 'middle'});
+  JT.text(svg, X(0), Y(-1.05), 'white hole', 'lab ink', {'text-anchor': 'middle'});
+  JT.text(svg, X(0), Y(-1.05) + 13, 'interior', 'lab ink', {'text-anchor': 'middle'});
+  el('circle', {cx: X(0), cy: Y(0), r: 3, 'class': 'start'}, svg);
+  JT.text(svg, X(0) - 9, Y(0) + 15, 'bifurcation point', 'lab sm', {'text-anchor': 'end'});
+  var mx = X(PI / 4) - 5, my = Y(-3 * PI / 4) - 5;
+  JT.text(svg, mx, my, 'φ = −φₕ, inner horizon', 'lab sm', {'text-anchor': 'middle', transform: 'rotate(-45 ' + mx + ' ' + my + ')'});
+  var hx = X(PI / 4) - 10, hy = Y(-PI / 4) + 10;
+  JT.text(svg, hx, hy, 'horizon, φ = φₕ', 'lab sm', {'text-anchor': 'middle', transform: 'rotate(45 ' + hx + ' ' + hy + ')'});
+  JT.text(svg, X(PI / 3) + 4, Y(5 * PI / 6) - 2, 'not fixed by', 'lab sm', {'text-anchor': 'middle'});
+  JT.text(svg, X(PI / 3) + 8, Y(5 * PI / 6) + 11, 'the boundaries', 'lab sm', {'text-anchor': 'middle'});
+  JT.text(svg, X(PI / 2) + 7, Y(PI / 2) - 6, 't = ∞', 'lab', {});
+  JT.text(svg, X(PI / 2) + 7, Y(-PI / 2) + 14, 't = −∞', 'lab', {});
+
+  // Lines of constant phi (ratio c = phi/phi_h)
+  function drawContours(on){
+    gCtr.textContent = '';
+    if (!on) return;
+    [1.3, 2, 3.5, 7].forEach(function(c){
+      [1, -1].forEach(function(side){
+        var a = [];
+        for (var i = 0; i <= 160; i++){ var t = -PI / 2 + PI * i / 160; a.push(P(side * Math.acos(Math.cos(t) / c), t)); }
+        el('polyline', {points: JT.pts(a), 'class': 'ctr'}, gCtr);
+      });
+    });
+    [0.7, 0.35, 0, -0.35, -0.7].forEach(function(c){
+      [1, -1].forEach(function(dir){
+        var a = [];
+        for (var i = 0; i <= 160; i++){ var s = -PI / 2 + PI * i / 160; a.push(P(s, dir * Math.acos(c * Math.cos(s)))); }
+        el('polyline', {points: JT.pts(a), 'class': 'ctr'}, gCtr);
+      });
+    });
+  }
+
+  // Temperature: boundary ticks and readouts
+  var beta = 6.2832;
+  function tauOf(t){ return 2 * Math.atan(Math.tanh(PI * t / beta)); }
+  function tOf(tau){ return beta / PI * Math.atanh(Math.tan(tau / 2)); }
+  function drawTicks(){
+    gTicks.textContent = '';
+    var lastLab = {1: -1e9, '-1': -1e9}, prevY = {};
+    for (var n = 0; n <= 60; n++){
+      [1, -1].forEach(function(sg){
+        if (n === 0 && sg < 0) return;
+        var y = Y(tauOf(sg * n));
+        if (prevY[sg] !== undefined && Math.abs(y - prevY[sg]) < 1.4) return;
+        prevY[sg] = y;
+        el('line', {x1: X(PI / 2) - 9, x2: X(PI / 2), y1: y, y2: y, 'class': 'tick'}, gTicks);
+        el('line', {x1: X(-PI / 2), x2: X(-PI / 2) + 9, y1: y, y2: y, 'class': 'tick'}, gTicks);
+        if (Math.abs(y - lastLab[sg]) > 15 && Math.abs(y - Y(PI / 2)) > 16 && Math.abs(y - Y(-PI / 2)) > 16){
+          JT.text(gTicks, X(PI / 2) + 7, y + 4, (sg < 0 ? '−' : '') + n, 'lab', {});
+          lastLab[sg] = y;
+        }
+      });
+    }
+    var ph = 2 * PI / beta;
+    $('f2-betao').textContent = JT.fmt(beta, 2) + ' ℓ/c';
+    $('r-ph').textContent = JT.fmt(ph, 3);
+    $('r-s').textContent = JT.fmt(ph, 3) + ' φᵣ/4G';
+    $('r-en').textContent = JT.fmt(PI / (beta * beta), 4) + ' φᵣ/4G';
+  }
+
+  // Falling particle and its signals
+  var s1 = 1, drop = {tau: 0, raf: 0, last: 0, started: false};
+  function path(){
+    // tau(s) and sigma(tau) for release from rest at sigma1 (eqs 2.9, 2.10), l = 1
+    var cs = Math.cos(s1), sn = Math.sin(s1);
+    function tauOfS(s){ return Math.atan2(cs * Math.sin(s), Math.cos(s)); }
+    function sigOfTau(t){ return Math.asin(sn * Math.cos(t)); }
+    var lo = PI / 2, hi = PI;                       // exit through the left inner horizon, tau - sigma = pi
+    for (var i = 0; i < 60; i++){ var m = (lo + hi) / 2; if (m - sigOfTau(m) < PI) lo = m; else hi = m; }
+    var tExit = lo, sExit = Math.atan2(Math.sin(tExit), cs * Math.cos(tExit));
+    var sigs = [];
+    for (var k = 0; k <= 8; k++){
+      var s = k * s1 / 6; if (s > sExit) break;
+      var te = tauOfS(s), se = sigOfTau(te), u = te - se, ta, tEnd, sEnd, arrive = null;
+      if (k < 6 && u < -1e-9){ ta = te + PI / 2 - se; tEnd = ta; sEnd = PI / 2; arrive = tOf(ta); }
+      else if (k === 6){ tEnd = PI / 2; sEnd = PI / 2; arrive = Infinity; }
+      else { tEnd = (PI + u) / 2; sEnd = tEnd - u; }
+      sigs.push({k: k, s: s, te: te, se: se, tEnd: tEnd, sEnd: sEnd, arrive: arrive});
+    }
+    return {tauOfS: tauOfS, sigOfTau: sigOfTau, tExit: tExit, sigs: sigs};
+  }
+  var pth = path();
+  function rows(){
+    var tb = $('f2-rows'); tb.textContent = '';
+    pth.sigs.forEach(function(g){
+      var tr = document.createElement('tr'), arr;
+      if (g.arrive === null) arr = 'never';
+      else if (g.arrive === Infinity) arr = '∞, sent at the horizon';
+      else arr = drop.started && drop.tau < g.te + (PI / 2 - g.se) ? '…' : JT.fmt(g.arrive, 2);
+      if (g.arrive === null) tr.className = 'never';
+      [String(g.k + 1), JT.fmt(g.s, 2), arr].forEach(function(v){ var td = document.createElement('td'); td.textContent = v; tr.appendChild(td); });
+      tb.appendChild(tr);
+    });
+  }
+  function drawDrop(){
+    gDrop.textContent = '';
+    var t = drop.tau, wl = [], done = [];
+    for (var i = 0; i <= 200; i++){ var tt = pth.tExit * i / 200; wl.push(P(pth.sigOfTau(tt), tt)); if (tt <= t) done.push(P(pth.sigOfTau(tt), tt)); }
+    el('polyline', {points: JT.pts(wl), 'class': 'fan'}, gDrop);
+    if (!drop.started){ el('circle', {cx: X(s1), cy: Y(0), r: 6, 'class': 'dot'}, gDrop); return; }
+    done.push(P(pth.sigOfTau(t), t));
+    el('polyline', {points: JT.pts(done), 'class': 'wl'}, gDrop);
+    el('line', {x1: X(-PI / 2), x2: X(PI / 2), y1: Y(t), y2: Y(t), 'class': 'now'}, gDrop);
+    pth.sigs.forEach(function(g){
+      if (t < g.te) return;
+      var tt = Math.min(t, g.tEnd), ss = g.se + (tt - g.te);
+      el('line', {x1: X(g.se), y1: Y(g.te), x2: X(ss), y2: Y(tt), 'class': 'sig' + (g.arrive === null ? ' lost' : '')}, gDrop);
+      el('circle', {cx: X(g.se), cy: Y(g.te), r: 2.4, 'class': 'arr'}, gDrop);
+      if (g.arrive !== null && g.arrive !== Infinity && t >= g.tEnd) el('circle', {cx: X(PI / 2) - 1.7, cy: Y(g.tEnd), r: 4, 'class': 'arr'}, gDrop);
+    });
+    el('circle', {cx: X(pth.sigOfTau(t)), cy: Y(t), r: 6, 'class': 'dot'}, gDrop);
+    $('r-t').textContent = t < PI / 2 - 1e-6 ? 't = ' + JT.fmt(tOf(t), 2) + ' ℓ/c' : '∞';
+  }
+  function setS1(v){
+    s1 = v; pth = path();
+    $('f2-s1o').textContent = 'φ = ' + JT.fmt(1 / Math.cos(s1), 2) + 'φₕ, ' + JT.fmt(Math.atanh(Math.sin(s1)), 2) + 'ℓ out';
+    $('r-sx').textContent = JT.fmt(s1, 3) + ' ℓ/c';
+    rows(); drawDrop();
+  }
+
+  // Controls
+  var dropBtn = $('f2-drop');
+  function stopDrop(){ if (drop.raf) cancelAnimationFrame(drop.raf); drop.raf = 0; drop.last = 0; dropBtn.textContent = drop.started && drop.tau < pth.tExit ? 'Resume' : 'Drop a particle'; }
+  function frame(ts){
+    if (!drop.last) drop.last = ts;
+    drop.tau += (ts - drop.last) / 1000 * 0.42; drop.last = ts;
+    if (drop.tau >= pth.tExit){ drop.tau = pth.tExit; drawDrop(); rows(); drop.raf = 0; stopDrop(); return; }
+    drawDrop(); rows();
+    if (drop.raf) drop.raf = requestAnimationFrame(frame);
+  }
+  dropBtn.addEventListener('click', function(){
+    if (drop.raf){ stopDrop(); return; }
+    if (!drop.started || drop.tau >= pth.tExit){ drop.started = true; drop.tau = 0; }
+    dropBtn.textContent = 'Pause'; drop.raf = requestAnimationFrame(frame);
+  });
+  $('f2-reset').addEventListener('click', function(){ stopDrop(); drop.started = false; drop.tau = 0; dropBtn.textContent = 'Drop a particle'; $('r-t').textContent = '—'; rows(); drawDrop(); });
+  var s1In = $('f2-s1');
+  s1In.addEventListener('input', function(){ stopDrop(); drop.started = false; drop.tau = 0; dropBtn.textContent = 'Drop a particle'; $('r-t').textContent = '—'; setS1(parseFloat(s1In.value)); });
+  var bIn = $('f2-beta');
+  bIn.addEventListener('input', function(){ beta = parseFloat(bIn.value); drawTicks(); pth = path(); rows(); drawDrop(); });
+  var cIn = $('f2-ctr');
+  cIn.addEventListener('change', function(){ drawContours(cIn.checked); });
+
+  // Pointer readout
+  var ptOut = $('r-pt');
+  function probe(evt){
+    var p = JT.svgPoint(svg, evt), s = (p.x - L) / K - PI / 2, t = PI - (p.y - T) / K;
+    gProbe.textContent = '';
+    if (Math.abs(s) >= PI / 2 || Math.abs(t) > PI){ ptOut.textContent = 'outside the strip'; return; }
+    el('circle', {cx: p.x, cy: p.y, r: 4, 'class': 'probe'}, gProbe);
+    if (Math.abs(t) > PI - Math.abs(s)){ ptOut.textContent = 'beyond an inner horizon'; return; }
+    var region = s > Math.abs(t) ? 'right exterior' : s < -Math.abs(t) ? 'left exterior' : t > 0 ? 'black hole interior' : 'white hole interior';
+    ptOut.textContent = 'φ = ' + JT.fmt(Math.cos(t) / Math.cos(s), 2) + 'φₕ, ' + region;
+  }
+  svg.addEventListener('pointermove', probe);
+  svg.addEventListener('pointerdown', probe);
+  svg.addEventListener('pointerleave', function(){ gProbe.textContent = ''; ptOut.textContent = 'hover or tap the diagram'; });
+
+  drawContours(true); drawTicks(); setS1(1);
+})();

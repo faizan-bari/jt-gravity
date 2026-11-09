@@ -1,0 +1,12 @@
+{
+  "name": "jt-gravity",
+  "version": "0.1.0",
+  "description": "A Black Hole in a Box: an interactive introduction to JT gravity",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "katex": "^0.16.11"
+  },
+  "private": true
+}

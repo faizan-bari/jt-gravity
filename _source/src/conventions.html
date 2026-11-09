@@ -1,0 +1,65 @@
+<!--BODY-->
+<section class="page-hero">
+  <p class="mono">Reference</p>
+  <h1>Conventions</h1>
+  <p class="lede">Everything on these pages uses the conventions below. Equations here are numbered (C.n) so the steps can refer to them, and numbers are never reused.</p>
+</section>
+
+<div class="prose">
+  <h2>Units and signature</h2>
+  <p>The signature is mostly plus, \((-,+)\), and \(\hbar=c=k_B=1\). \(\ell\) is the AdS radius; formulas marked \((\ell=1)\) set it to one. \(G\) is the two-dimensional Newton constant, so entropies such as \(\phi_0/4G\) are pure numbers.</p>
+
+  <h2>Action and boundary conditions</h2>
+  \[ \begin{aligned} I={}&\frac{1}{16\pi G}\int_M d^2x\,\sqrt{-g}\,\Big[\phi_0R+\phi\Big(R+\frac{2}{\ell^2}\Big)\Big]\\ &+\frac{1}{8\pi G}\int_{\partial M}dt\,\sqrt{-\gamma}\,\Big[\phi_0K+\phi\Big(K-\frac{1}{\ell}\Big)\Big]+I_{\rm matter}[g,\chi]. \end{aligned} \tag{C.1} \]
+  <p>The \(\phi_0\) term is topological: it does not affect the equations of motion, and in the Euclidean path integral it contributes \(S_0\chi\), with \(S_0=\phi_0/4G\) and \(\chi\) the Euler characteristic. The \(-\phi/\ell\) boundary term is the counterterm that keeps the action finite. Matter fields \(\chi\) couple to the metric but not to \(\phi\). At the boundary we fix</p>
+  \[ \gamma_{tt}=-\frac{1}{\varepsilon^2},\qquad \phi\big|_{\partial M}=\frac{\phi_r}{\varepsilon},\qquad \varepsilon\to0\qquad(\ell=1). \tag{C.2} \]
+
+  <h2>Equations of motion</h2>
+  \[ R=-\frac{2}{\ell^2}, \tag{C.3} \]
+  \[ \nabla_\mu\nabla_\nu\phi-g_{\mu\nu}\nabla^2\phi+\frac{1}{\ell^2}\,g_{\mu\nu}\,\phi=-8\pi G\,T_{\mu\nu}, \tag{C.4} \]
+  <p>with \(T_{\mu\nu}=-(2/\sqrt{-g})\,\delta I_{\rm matter}/\delta g^{\mu\nu}\). (C.3) comes from varying \(\phi\) and (C.4) from varying \(g^{\mu\nu}\). In vacuum the trace of (C.4) gives \(\nabla^2\phi=2\phi/\ell^2\), and then \(\nabla_\mu\nabla_\nu\phi=g_{\mu\nu}\,\phi/\ell^2\).</p>
+  <details class="deriv">
+    <summary>Varying the metric</summary>
+    <p>For any scalar \(f\), up to total derivatives,</p>
+    \[ \delta\!\left(\sqrt{-g}\,fR\right)=\sqrt{-g}\left(f\,G_{\mu\nu}+g_{\mu\nu}\nabla^2f-\nabla_\mu\nabla_\nu f\right)\delta g^{\mu\nu}, \tag{C.4a} \]
+    <p>and \(G_{\mu\nu}\equiv0\) in two dimensions, which is why \(\phi_0R\) drops out. The cosmological term gives \(\delta\big(\sqrt{-g}\,2\phi/\ell^2\big)=-\sqrt{-g}\,g_{\mu\nu}\,(\phi/\ell^2)\,\delta g^{\mu\nu}\), and the matter gives \(-\tfrac12\sqrt{-g}\,T_{\mu\nu}\,\delta g^{\mu\nu}\). Setting the sum to zero and multiplying by \(-16\pi G\) gives (C.4). Along a null direction \(k^\mu\), (C.4) says \(k^\mu k^\nu\nabla_\mu\nabla_\nu\phi=-8\pi G\,T_{\mu\nu}k^\mu k^\nu\): positive energy focuses \(\phi\), the two-dimensional version of the Raychaudhuri equation.</p>
+  </details>
+
+  <h2>AdS₂</h2>
+  <p>AdS₂ is (the universal cover of) the hyperboloid</p>
+  \[ -T_1^2-T_2^2+X^2=-\ell^2\quad\text{in}\quad ds^2=-dT_1^2-dT_2^2+dX^2. \tag{C.5} \]
+  <p>Global coordinates:</p>
+  \[ \begin{aligned} &T_1=\frac{\ell\cos\tau}{\cos\sigma},\qquad T_2=\frac{\ell\sin\tau}{\cos\sigma},\qquad X=\ell\tan\sigma,\\ &ds^2=\frac{\ell^2}{\cos^2\sigma}\left(-d\tau^2+d\sigma^2\right). \end{aligned} \tag{C.6} \]
+
+  <h2>The two-sided black hole</h2>
+  \[ \phi=\phi_h\,\frac{T_1}{\ell}=\phi_h\,\frac{\cos\tau}{\cos\sigma}, \tag{C.7} \]
+  \[ \begin{aligned} &ds^2=-(r^2-r_h^2)\,dt^2+\frac{dr^2}{r^2-r_h^2},\qquad \phi=\phi_r\,r,\\ &r_h=\frac{\phi_h}{\phi_r},\qquad \frac{r}{r_h}=\frac{\cos\tau}{\cos\sigma}\qquad(\ell=1). \end{aligned} \tag{C.8} \]
+  \[ \beta=\frac{2\pi}{r_h}=\frac{2\pi\phi_r}{\phi_h},\qquad \tan\frac{\tau}{2}=\tanh\frac{\pi t}{\beta}\ \ \text{on each boundary}, \tag{C.9} \]
+  \[ S=\frac{\phi_0+\phi_h}{4G},\qquad E=\frac{\phi_h^2}{16\pi G\,\phi_r}=\frac{\pi\phi_r}{4G\,\beta^2}. \tag{C.10} \]
+
+  <h2>Conversion: Harlow and Jafferis</h2>
+  <p>D. Harlow and D. Jafferis, “The factorization problem in Jackiw–Teitelboim gravity”, <a href="https://arxiv.org/abs/1804.01081">arXiv:1804.01081</a>. They write the action without the \(1/16\pi G\) and set \(\ell=1\). Equation numbers in the left column are theirs.</p>
+</div>
+<div class="tbl-wrap prose">
+  <table class="tbl">
+    <thead><tr><th scope="col">Harlow and Jafferis</th><th scope="col">This site</th></tr></thead>
+    <tbody>
+      <tr><td>action (2.1), no prefactor</td><td>(C.1) with \(\ell=1\), times \(16\pi G\)</td></tr>
+      <tr><td>\(\Phi\), \(\Phi_0\)</td><td>\(\phi/16\pi G\), \(\phi_0/16\pi G\)</td></tr>
+      <tr><td>\(\phi_b\)</td><td>\(\phi_r/16\pi G\)</td></tr>
+      <tr><td>\(r_c\to\infty\)</td><td>\(1/\varepsilon\)</td></tr>
+      <tr><td>\(x\) in (2.15)</td><td>\(\tan\sigma\)</td></tr>
+      <tr><td>\(\Phi=\Phi_h T_1\) (2.14)</td><td>(C.7)</td></tr>
+      <tr><td>\(r_s\) (2.17)–(2.19)</td><td>\(r_h\)</td></tr>
+      <tr><td>\(\cos\tau=1/\cosh(r_st)\) (2.22)</td><td>(C.9)</td></tr>
+      <tr><td>\(r_s=2\pi/\beta\) (3.11), \(\Phi_h=2\pi\phi_b/\beta\) (3.18)</td><td>(C.9)</td></tr>
+      <tr><td>\(S=4\pi(\Phi_0+\Phi_h)\) (3.14)</td><td>\(S=(\phi_0+\phi_h)/4G\), (C.10)</td></tr>
+      <tr><td>\(H_L=H_R=\Phi_h^2/\phi_b\) (2.20)</td><td>\(E=\phi_h^2/16\pi G\phi_r\), (C.10)</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="prose">
+  <p class="note">They fix the size of the induced metric, \(|\gamma_{tt}|=r_c^2\); with our signature the boundary is timelike and \(\gamma_{tt}=-1/\varepsilon^2\).</p>
+  <h2>Other papers</h2>
+  <p>Conversions for Maldacena, Stanford and Yang (<a href="https://arxiv.org/abs/1606.01857">arXiv:1606.01857</a>), Penington and Witten (<a href="https://arxiv.org/abs/2301.07257">arXiv:2301.07257</a>) and the papers that couple JT gravity to a bath will be added as the steps that use them are written, each one checked against the paper itself.</p>
+</div>
