@@ -37,6 +37,19 @@
   \[ \beta=\frac{2\pi}{r_h}=\frac{2\pi\phi_r}{\phi_h},\qquad \tan\frac{\tau}{2}=\tanh\frac{\pi t}{\beta}\ \ \text{on each boundary}, \tag{C.9} \]
   \[ S=\frac{\phi_0+\phi_h}{4G},\qquad E=\frac{\phi_h^2}{16\pi G\,\phi_r}=\frac{\pi\phi_r}{4G\,\beta^2}. \tag{C.10} \]
 
+  <h2>Null coordinates and shock waves</h2>
+  <p>With \(x^\pm=\tau\pm\sigma\), the metric (C.6) is \(ds^2=-e^{2\omega}dx^+dx^-\) with \(e^{2\omega}=\ell^2/\cos^2\sigma\), and the \(++\) component of (C.4) reads</p>
+  \[ e^{2\omega}\,\partial_+\!\left(e^{-2\omega}\,\partial_+\phi\right)=-8\pi G\,T_{++}. \tag{C.11} \]
+  <p>A pulse leaving the right boundary at global time \(\tau_s\) with boundary energy \(E_s\), \(T_{++}=p\,\delta(x^+-\tau_s-\pi/2)\), gives (step 3, \(\ell=1\))</p>
+  \[ \begin{aligned}&\phi=\phi_h\frac{\cos\tau}{\cos\sigma}+\lambda\,\frac{\sin\sigma-\cos(\tau-\tau_s)}{\cos\sigma}\,\Theta\!\left(x^+-\tau_s-\tfrac{\pi}{2}\right),\\ &\lambda=-8\pi G\,p=-\frac{8\pi G\,\phi_rE_s}{\phi_h\cos\tau_s},\end{aligned} \tag{C.12} \]
+  \[ \phi_h'^2=\phi_h^2+16\pi G\,\phi_rE_s . \tag{C.13} \]
+  <p>For any vacuum solution \(\phi=(AT_1+BT_2+CX)/\ell\) with \(A^2+B^2>C^2\), the right boundary’s clock runs at</p>
+  \[ dt=\frac{\phi_r\,d\tau}{A\cos\tau+B\sin\tau+C}\qquad(\ell=1). \tag{C.14} \]
+
+  <h2>The wormhole length</h2>
+  \[ \begin{aligned}&\tilde L=d-2\ln\frac{2\phi_b}{\varepsilon}=2\ln\left[\frac{\cosh\big(\pi(t_L+t_R)/\beta\big)}{\Phi_h}\right],\\ &\phi_b=\frac{\phi_r}{16\pi G},\qquad \Phi_h=\frac{\phi_h}{16\pi G},\end{aligned} \tag{C.15} \]
+  \[ \begin{aligned}&P=2\Phi_h\tanh\frac{\pi(t_L+t_R)}{\beta},\\ &H=H_L+H_R=\frac{P^2}{2\phi_b}+\frac{2}{\phi_b}e^{-\tilde L}=\frac{2\Phi_h^2}{\phi_b}.\end{aligned} \tag{C.16} \]
+
   <h2>Conversion: Harlow and Jafferis</h2>
   <p>D. Harlow and D. Jafferis, “The factorization problem in Jackiw–Teitelboim gravity”, <a href="https://arxiv.org/abs/1804.01081">arXiv:1804.01081</a>. They write the action without the \(1/16\pi G\) and set \(\ell=1\). Equation numbers in the left column are theirs.</p>
 </div>
@@ -55,11 +68,14 @@
       <tr><td>\(r_s=2\pi/\beta\) (3.11), \(\Phi_h=2\pi\phi_b/\beta\) (3.18)</td><td>(C.9)</td></tr>
       <tr><td>\(S=4\pi(\Phi_0+\Phi_h)\) (3.14)</td><td>\(S=(\phi_0+\phi_h)/4G\), (C.10)</td></tr>
       <tr><td>\(H_L=H_R=\Phi_h^2/\phi_b\) (2.20)</td><td>\(E=\phi_h^2/16\pi G\phi_r\), (C.10)</td></tr>
+      <tr><td>\(\delta=(t_L+t_R)/2\) (2.23)</td><td>the same</td></tr>
+      <tr><td>\(L\) (2.29), (2.32)</td><td>\(	ilde L\), (C.15)</td></tr>
+      <tr><td>\(P\) (2.33), \(H\) (2.35)</td><td>(C.16)</td></tr>
     </tbody>
   </table>
 </div>
 <div class="prose">
   <p class="note">They fix the size of the induced metric, \(|\gamma_{tt}|=r_c^2\); with our signature the boundary is timelike and \(\gamma_{tt}=-1/\varepsilon^2\).</p>
   <h2>Other papers</h2>
-  <p>Conversions for Maldacena, Stanford and Yang (<a href="https://arxiv.org/abs/1606.01857">arXiv:1606.01857</a>), Penington and Witten (<a href="https://arxiv.org/abs/2301.07257">arXiv:2301.07257</a>) and the papers that couple JT gravity to a bath will be added as the steps that use them are written, each one checked against the paper itself.</p>
+  <p>Conversions for Maldacena, Stanford and Yang (<a href="https://arxiv.org/abs/1606.01857">arXiv:1606.01857</a>), Penington and Witten (<a href="https://arxiv.org/abs/2301.07257">arXiv:2301.07257</a>) and the papers that couple JT gravity to a bath are planned for v0.3. Each will be checked against the paper itself before it goes up.</p>
 </div>

@@ -50,7 +50,7 @@ button{font:inherit}
 .katex-display > .katex{text-align:left;padding-left:.25rem}
 .ctl label .katex,.mono .katex{text-transform:none;letter-spacing:0}
 @media (min-width:900px){.prose > .katex-display{margin-right:-10rem}}
-@media (max-width:700px){.katex-display>.katex>.katex-html>.tag{position:static;margin-left:1.25em}}
+@media (max-width:899px){.katex-display>.katex>.katex-html>.tag{position:static;margin-left:1.25em}}
 .note{font-size:1rem;color:var(--muted)}
 
 /* Derivations */
@@ -119,6 +119,7 @@ figcaption strong{color:var(--ink);font-weight:500}
 .dia .sig.lost{stroke-dasharray:3 3;opacity:.7}
 .dia .arr{fill:var(--chinar)}
 .dia .probe{fill:none;stroke:var(--ink);stroke-width:1}
+.dia.chart{max-height:none;max-width:26rem}
 
 /* Contents page */
 .steps{list-style:none;margin:0;padding:0;max-width:46rem;display:flex;flex-direction:column;counter-reset:step}

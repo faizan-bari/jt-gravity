@@ -1,0 +1,266 @@
+<!--BODY-->
+<section class="page-hero">
+  <p class="mono">Step 3 of 5</p>
+  <h1>Throw something in</h1>
+  <p class="lede">Throw a pulse of matter into the black hole. The geometry stays exactly AdS₂ and only the dilaton changes. Yet the horizon moves outward, and it starts moving before the pulse is even thrown.</p>
+</section>
+
+<div class="prose">
+  <h2>A shock wave</h2>
+  <p>The simplest thing to throw in is a thin pulse moving at the speed of light, a shock wave. It leaves the right boundary at boundary time \(t_s\) carrying energy \(E_s\), measured by the boundary clock. In null coordinates \(x^\pm=\tau\pm\sigma\) the metric (1.1) is \(ds^2=-e^{2\omega}dx^+dx^-\) with \(e^{2\omega}=1/\cos^2\sigma\) \((\ell=1)\), and the pulse travels along the ingoing light ray \(x^+=x_s\equiv\tau_s+\pi/2\), where \(\tau_s\) is the global time at which it leaves the boundary, from (2.7). Its stress tensor is \(T_{++}=p\,\delta(x^+-x_s)\), with \(p\) constant along the pulse.</p>
+  <p>In these coordinates \(g_{++}=0\), so the \(++\) component of (2.2) keeps only its derivatives:</p>
+  \[ e^{2\omega}\,\partial_+\!\left(e^{-2\omega}\,\partial_+\phi\right)=-8\pi G\,T_{++}. \tag{3.1} \]
+  <p>Integrating across the pulse, \(\phi\) is continuous and its derivative along \(x^+\) jumps:</p>
+  \[ \Delta\left(\partial_+\phi\right)=-8\pi G\,p. \tag{3.2} \]
+  <p>The matter does not bend the geometry; it bends the dilaton. Positive energy makes \(\phi\) fall off faster beyond the pulse, the focusing of (C.4a).</p>
+
+  <h2>The solution</h2>
+  <p>Before the pulse \((x^+&lt;x_s)\) nothing has changed and \(\phi\) is (2.3). After it, add a vacuum solution that vanishes on the pulse, so that \(\phi\) stays continuous:</p>
+  \[ \phi=\phi_h\,\frac{\cos\tau}{\cos\sigma}+\lambda\,\frac{\sin\sigma-\cos(\tau-\tau_s)}{\cos\sigma}\;\Theta(x^+-x_s). \tag{3.3} \]
+  <p>The added piece is \(\lambda\,(X-T_1\cos\tau_s-T_2\sin\tau_s)/\ell\) in the embedding coordinates (C.6), so it solves the vacuum equation, and on the pulse its \(\partial_+\) derivative is exactly \(\lambda\). By (3.2), \(\lambda=-8\pi G\,p\).</p>
+  <p>After the pulse the dilaton is again linear in the embedding coordinates, \(\phi=(AT_1+BT_2+CX)/\ell\) with \((A,B,C)=(\phi_h-\lambda\cos\tau_s,\,-\lambda\sin\tau_s,\,\lambda)\). Every such solution is a symmetry of AdS₂ away from a static black hole, and those symmetries leave \(A^2+B^2-C^2\) unchanged. So the right boundary now sees a black hole with</p>
+  \[ \phi_h'^2=A^2+B^2-C^2=\phi_h^2-2\lambda\,\phi_h\cos\tau_s. \tag{3.4} \]
+  <p>With \(E=\phi_h^2/16\pi G\phi_r\) from (C.10), the boundary’s energy must go up by exactly \(E_s\), which fixes</p>
+  \[ \lambda=-\frac{8\pi G\,\phi_r E_s}{\phi_h\cos\tau_s},\qquad \phi_h'=\sqrt{\phi_h^2+16\pi G\,\phi_r E_s}. \tag{3.5} \]
+  <p>In words, \(p=E_s\,dt/d\tau\): the pulse’s energy in global time is its boundary energy times the redshift factor at the moment it leaves, \(dt/d\tau=\beta/(2\pi\cos\tau_s)\) from (2.7). The entropy rises by</p>
+  \[ S'-S=\frac{\phi_h'-\phi_h}{4G}\;\approx\;\beta E_s\quad\text{for small }E_s, \tag{3.6} \]
+  <p>which is the first law. For a large pulse the rise is smaller than \(\beta E_s\), because the black hole heats up as it absorbs the pulse.</p>
+</div>
+
+<figure class="fig">
+  <div class="fig-grid">
+    <svg id="f3" class="dia" viewBox="0 0 401 677" role="img" aria-labelledby="f3-cap"></svg>
+    <div class="panel">
+      <div class="ctl"><label for="f3-es"><span>Pulse energy, \(E_s/E\)</span><output id="f3-eso" for="f3-es"></output></label>
+        <input id="f3-es" type="range" min="-0.8" max="3" step="0.01" value="1"></div>
+      <div class="ctl"><label for="f3-ts"><span>Thrown at boundary time \(t_s\)</span><output id="f3-tso" for="f3-ts"></output></label>
+        <input id="f3-ts" type="range" min="-3" max="3" step="0.01" value="0"></div>
+      <div class="checks">
+        <label><input type="checkbox" id="f3-ctr" checked> Lines of constant \(\phi\)</label>
+        <label><input type="checkbox" id="f3-old" checked> Where the horizon was</label>
+      </div>
+      <dl class="read">
+        <dt>New horizon value, \(\phi_h'/\phi_h\)</dt><dd id="r3-ph"></dd>
+        <dt>New temperature, \(\beta'/\beta\)</dt><dd id="r3-b"></dd>
+        <dt>Entropy change, \(S'-S\)</dt><dd id="r3-ds"></dd>
+        <dt>First-law estimate, \(\beta E_s\)</dt><dd id="r3-fl"></dd>
+        <dt>Right boundary ends at</dt><dd id="r3-te"></dd>
+      </dl>
+      <p id="r3-trav" class="note" aria-live="polite"></p>
+      <div>
+        <p class="mono" style="margin-bottom:.35rem">\(\phi\) on the event horizon</p>
+        <svg id="f3c" class="dia chart" viewBox="0 0 320 196" role="img" aria-label="Dilaton along the event horizon against boundary time"></svg>
+      </div>
+    </div>
+  </div>
+  <figcaption id="f3-cap"><strong>Figure 3.</strong> A pulse thrown into the right side of the black hole (orange), drawn for \(\beta=2\pi\ell/c\), so that \(\phi_h=\phi_r\); \(\tau\) runs from \(-\pi/2\) to \(3\pi/2\). <span class="key"></span> the event horizons, with the right one at its new place (3.9); the dashed green line is where it was. <span class="key bdy"></span> the boundaries, ticked every unit of their own time; the right one now ends at \(\tau_{\rm end}\). <span class="key ihz"></span> inner horizons; the hatched regions beyond them are not determined by the boundaries. Thin grey lines are lines of constant \(\phi\), which bend where they cross the pulse. With negative energy, thin orange lines are signals from the left boundary that come out on the right. The chart shows \(\phi\) along the right event horizon, labelled by the boundary time at which an ingoing light ray would cross it.</figcaption>
+</figure>
+
+<div class="prose">
+  <h2>The boundary bends</h2>
+  <p>Near the right edge, \(\phi\approx f(\tau)/\cos\sigma\) with</p>
+  \[ \begin{aligned}f(\tau)&=A\cos\tau+B\sin\tau+C\\ &=\phi_h\cos\tau+\lambda\left[1-\cos(\tau-\tau_s)\right]\qquad(\tau>\tau_s).\end{aligned} \tag{3.7} \]
+  <p>By the same argument that gave (2.7), the boundary sits where \(f>0\), and its clock runs at</p>
+  \[ dt=\frac{\phi_r\,d\tau}{f(\tau)}. \tag{3.8} \]
+  <p>For positive energy \(\lambda&lt;0\), so \(f\) reaches zero sooner: the right boundary’s entire future now fits below a global time \(\tau_{\rm end}&lt;\pi/2\). Near the end, (3.8) gives \(\tau_{\rm end}-\tau\propto e^{-2\pi t/\beta'}\) with \(2\pi/\beta'=|f'(\tau_{\rm end})|/\phi_r\), and \(|f'(\tau_{\rm end})|=\sqrt{A^2+B^2-C^2}=\phi_h'\). So the late-time clock confirms the new temperature \(\beta'=2\pi\phi_r/\phi_h'\), independently of (3.4).</p>
+
+  <h2>The horizon moves, early</h2>
+  <p>The right event horizon is the past light cone of the boundary’s last moment:</p>
+  \[ x^-=\tau-\sigma=\tau_{\rm end}-\frac{\pi}{2}. \tag{3.9} \]
+  <p>With positive energy it moves outward, toward the boundary. Because it is fixed by the boundary’s entire future, it moves along its whole length, including long before the pulse was thrown. The chart under the controls shows \(\phi\) along the event horizon. It starts at \(\phi_h\), grows like \(e^{2\pi(t-t_s)/\beta}\) as the throw approaches, and after the pulse has crossed it stays at \(\phi_h'\), the value (3.5). The horizon grows before anything has fallen in.</p>
+  <p>Nothing travels backwards in time here. The event horizon is defined by the whole future, so it “knows” what is coming; local quantities near it do not change until the pulse arrives. The same thing happens in four dimensions when a shell falls into a black hole. With positive energy, \(\phi\) on the event horizon never decreases, the two-dimensional area theorem.</p>
+
+  <h2>Negative energy: a traversable wormhole</h2>
+  <p>Classical matter cannot carry negative energy, but quantum fields can, briefly. Gao, Jafferis and Wall showed that coupling the two boundaries sends a pulse of negative null energy into the bulk. In (3.5) that means \(E_s&lt;0\) and \(\lambda&gt;0\). Now \(f\) stays positive longer, \(\tau_{\rm end}&gt;\pi/2\), and the horizon (3.9) moves inward. Light sent from the left boundary at global time \(\tau_L\) travels along \(x^-=\tau_L+\pi/2\), and it reaches the right boundary if</p>
+  \[ \tau_L&lt;\tau_{\rm end}-\pi. \tag{3.10} \]
+  <p>The left boundary exists only for \(\tau_L&gt;-\pi/2\), so a window opens exactly when \(\tau_{\rm end}&gt;\pi/2\): signals sent from the left early enough come out on the right, after the pulse. Set a negative energy in the figure to see them.</p>
+  <p class="note">Two caveats. In the real effect the negative energy is small and quantum; the slider goes to \(E_s=-0.8E\) only to make the window visible. And the signals’ own backreaction is ignored. Maldacena, Stanford and Yang work out the JT version in detail.</p>
+
+  <details class="deriv">
+    <summary>Checks on (3.3)–(3.10)</summary>
+    <p>All of these were checked symbolically or numerically before publishing. On the pulse, the added piece in (3.3) vanishes and its \(\partial_+\) derivative equals \(\lambda\). It satisfies \(\nabla_\mu\nabla_\nu\phi=g_{\mu\nu}\phi\) \((\ell=1)\). Where the new horizon (3.9) meets the pulse, the old dilaton already equals \(\phi_h'\), so \(\phi\) is continuous there and constant along the horizon afterwards. For small \(E_s\), (3.6) agrees with \(\beta E_s\) to second order. The late-time slope \(|f'(\tau_{\rm end})|\) equals \(\phi_h'\) from (3.4) to six decimal places.</p>
+  </details>
+
+  <h2>What this does not show</h2>
+  <p>There are no quantum fields here, so the black hole does not radiate, and AdS still reflects everything at its edges. Step 5 opens the box.</p>
+
+  <h2>Sources</h2>
+  <ol class="refs">
+    <li>P. Gao, D. Jafferis and A. Wall, “Traversable wormholes via a double trace deformation”, <a href="https://arxiv.org/abs/1608.05687">arXiv:1608.05687</a>.</li>
+    <li>J. Maldacena, D. Stanford and Z. Yang, “Diving into traversable wormholes”, <a href="https://arxiv.org/abs/1704.05333">arXiv:1704.05333</a>.</li>
+    <li>S. Shenker and D. Stanford, “Black holes and the butterfly effect”, <a href="https://arxiv.org/abs/1306.0622">arXiv:1306.0622</a>: shock waves in AdS black holes.</li>
+    <li>D. Harlow and D. Jafferis, <a href="https://arxiv.org/abs/1804.01081">arXiv:1804.01081</a>, §2.1, for the vacuum solutions and their energies. The shock solution (3.3)–(3.5) is derived here directly from (2.2).</li>
+  </ol>
+</div>
+
+<nav class="pager" aria-label="Steps"><a href="black-hole.html">← Step 2: Where is the black hole?</a><a href="wormhole.html">Step 4: Two sides, one wormhole →</a></nav>
+<!--JS-->
+(function(){
+  var PI = Math.PI, el = JT.el, svg = document.getElementById('f3'), chart = document.getElementById('f3c');
+  var K = 100, L = 40, T = 14, TOP = 3 * PI / 2, BOT = -PI / 2;
+  function X(s){ return L + (s + PI / 2) * K; }
+  function Y(t){ return T + (TOP - t) * K; }
+  function P(s, t){ return [X(s), Y(t)]; }
+  function $(id){ return document.getElementById(id); }
+  // null-coordinate helpers: x+ = tau + sigma, x- = tau - sigma
+  function nx(xp, xm){ return [(xp - xm) / 2, (xp + xm) / 2]; }
+  function lineMinus(k, a, b){ var p = nx(a, k), q = nx(b, k); return JT.pts([P(p[0], p[1]), P(q[0], q[1])]); }
+  function linePlus(k, a, b){ var p = nx(k, a), q = nx(k, b); return JT.pts([P(p[0], p[1]), P(q[0], q[1])]); }
+
+  var defs = el('defs', {}, svg);
+  var pat = el('pattern', {id: 'hatch-f3', width: 7, height: 7, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)'}, defs);
+  el('line', {x1: 0, y1: 0, x2: 0, y2: 7, 'class': 'hatch'}, pat);
+  var cp = el('clipPath', {id: 'clip-f3'}, defs);
+  el('rect', {x: X(-PI / 2), y: Y(TOP), width: PI * K, height: (TOP - BOT) * K}, cp);
+  el('rect', {x: X(-PI / 2), y: Y(TOP), width: PI * K, height: (TOP - BOT) * K, fill: 'url(#hatch-f3)'}, svg);
+  var g = el('g', {'clip-path': 'url(#clip-f3)'}, svg), gOut = el('g', {}, svg);
+  [['−π/2', -PI / 2], ['0', 0], ['π/2', PI / 2], ['π', PI], ['3π/2', 3 * PI / 2]].forEach(function(a){
+    JT.text(svg, L - 6, Y(a[1]) + 4, a[0], 'lab', {'text-anchor': 'end'});
+  });
+  [['−π/2', -PI / 2], ['0', 0], ['π/2', PI / 2]].forEach(function(a){ JT.text(svg, X(a[1]), Y(BOT) + 17, a[0], 'lab', {'text-anchor': 'middle'}); });
+  JT.text(svg, X(0), Y(BOT) + 30, 'σ', 'lab', {'text-anchor': 'middle'});
+
+  // Physics with phi_h = phi_r = 1, so beta = 2 pi and E = 1/16 pi G
+  function oldTau(t){ return 2 * Math.atan(Math.tanh(t / 2)); }
+  var st = {es: 1, ts: 0, ctr: true, old: true}, S;
+  function derive(){
+    var ts = oldTau(st.ts), lam = -st.es / (2 * Math.cos(ts));
+    var A = 1 - lam * Math.cos(ts), B = -lam * Math.sin(ts), C = lam;
+    function f(t){ return A * Math.cos(t) + B * Math.sin(t) + C; }
+    var a = ts, b = ts + 0.002;
+    while (f(b) > 0 && b < ts + 2 * PI){ a = b; b += 0.002; }
+    for (var i = 0; i < 60; i++){ var m = (a + b) / 2; if (f(m) > 0) a = m; else b = m; }
+    var tend = (a + b) / 2;
+    // boundary clock after the pulse, eq. (3.8), integrated in w = -ln(tend - tau)
+    var w0 = -Math.log(tend - ts), wmax = 26, N = 2600, tab = [[ts, st.ts]], tc = st.ts;
+    function gw(w){ var e = Math.exp(-w); return e / f(tend - e); }
+    var prev = gw(w0);
+    for (var k = 1; k <= N; k++){
+      var w = w0 + (wmax - w0) * k / N, cur = gw(w);
+      tc += (prev + cur) / 2 * (wmax - w0) / N; prev = cur;
+      tab.push([tend - Math.exp(-w), tc]);
+    }
+    S = {ts: ts, lam: lam, A: A, B: B, C: C, f: f, tend: tend, tab: tab, ph: Math.sqrt(A * A + B * B - C * C), xs: ts + PI / 2, M: tend + PI / 2};
+  }
+  function newTau(t){            // right-boundary clock: global time at boundary time t
+    if (t <= st.ts) return oldTau(t);
+    var tab = S.tab, lo = 0, hi = tab.length - 1;
+    if (t >= tab[hi][1]) return S.tend;
+    while (hi - lo > 1){ var m = (lo + hi) >> 1; if (tab[m][1] < t) lo = m; else hi = m; }
+    var u = (t - tab[lo][1]) / (tab[hi][1] - tab[lo][1]);
+    return tab[lo][0] + u * (tab[hi][0] - tab[lo][0]);
+  }
+  function tOfTauRight(tau){     // inverse on the table (tau > tau_s)
+    var tab = S.tab, lo = 0, hi = tab.length - 1;
+    if (tau >= tab[hi][0]) return Infinity;
+    while (hi - lo > 1){ var m = (lo + hi) >> 1; if (tab[m][0] < tau) lo = m; else hi = m; }
+    var u = (tau - tab[lo][0]) / (tab[hi][0] - tab[lo][0]);
+    return tab[lo][1] + u * (tab[hi][1] - tab[lo][1]);
+  }
+  function phi(s, t){
+    var xp = t + s, xm = t - s;
+    if (xm >= PI || xm <= -PI || xp <= -PI || xp >= S.M) return NaN;
+    var c = Math.cos(s);
+    if (xp < S.xs) return Math.cos(t) / c;
+    return (S.A * Math.cos(t) + S.B * Math.sin(t) + S.C * Math.sin(s)) / c;
+  }
+
+  function draw(){
+    derive();
+    g.textContent = ''; gOut.textContent = '';
+    // region fixed by the boundaries: -pi < x- < pi, -pi < x+ < M, clipped to the strip
+    var poly = [nx(-PI, -PI), nx(S.M, -PI), nx(S.M, PI), nx(-PI, PI)];
+    [function(p){ return PI / 2 - p[0]; }, function(p){ return p[0] + PI / 2; }].forEach(function(h){ poly = JT.clip(poly, h); });
+    el('polygon', {points: JT.pts(poly.map(function(p){ return P(p[0], p[1]); })), 'class': 'strip'}, g);
+    if (st.ctr){
+      var paths = JT.contours(phi, {x0: -PI / 2 + 0.004, x1: PI / 2 - 0.004, y0: BOT, y1: TOP, nx: 110, ny: 220, X: X, Y: Y,
+        levels: [-0.7, -0.35, 0, 0.35, 0.7, 1.35, 2, 3.5, 7]});
+      paths.forEach(function(d){ if (d) el('path', {d: d, 'class': 'ctr'}, g); });
+    }
+    var c = S.tend - PI / 2;
+    if (st.old) el('polyline', {points: lineMinus(0, 0, PI), 'class': 'hz', 'stroke-dasharray': '5 5', opacity: 0.55}, g);
+    el('polyline', {points: linePlus(0, -PI, PI), 'class': 'hz'}, g);          // right past + left future horizon
+    el('polyline', {points: lineMinus(0, -PI, 0), 'class': 'hz'}, g);          // left past horizon
+    el('polyline', {points: lineMinus(c, -PI, c + PI), 'class': 'hz'}, g);     // new right future horizon (3.9)
+    el('polyline', {points: lineMinus(PI, 0, S.M), 'class': 'ihz'}, g);       // inner horizons
+    el('polyline', {points: linePlus(S.M, c, PI), 'class': 'ihz'}, g);
+    el('polyline', {points: linePlus(S.xs, S.ts - PI / 2, PI), 'class': 'lt', 'stroke-width': 3}, g);   // the pulse
+    // signals from the left (negative energy)
+    var trav = $('r3-trav');
+    if (S.tend > PI / 2 + 1e-6){
+      var tLmax = S.tend - PI;
+      [0.15, 0.45, 0.75].forEach(function(q){
+        var tL = -PI / 2 + q * (tLmax + PI / 2);
+        el('polyline', {points: lineMinus(tL + PI / 2, tL - PI / 2, tL + 3 * PI / 2), 'class': 'sig'}, g);
+        el('circle', {cx: X(PI / 2) - 1.7, cy: Y(tL + PI), r: 3.6, 'class': 'arr'}, gOut);
+        el('circle', {cx: X(-PI / 2) + 1.7, cy: Y(tL), r: 3.6, 'class': 'arr'}, gOut);
+      });
+      var tLmaxB = 2 * Math.atanh(Math.tan(tLmax / 2));
+      trav.textContent = 'Traversable: light sent from the left before tₗ = ' + JT.fmt(tLmaxB, 2) + ' ℓ/c comes out on the right, after the pulse.';
+    } else {
+      trav.textContent = S.tend < PI / 2 - 1e-6 ? 'Not traversable: positive energy pushes the right horizon outward, so nothing from the left can reach the right boundary.' :
+        'With no pulse, the horizons meet at the bifurcation point and nothing crosses.';
+    }
+    // boundaries
+    el('line', {x1: X(-PI / 2) + 1.7, x2: X(-PI / 2) + 1.7, y1: Y(PI / 2), y2: Y(-PI / 2), 'class': 'bdy'}, gOut);
+    el('line', {x1: X(PI / 2) - 1.7, x2: X(PI / 2) - 1.7, y1: Y(S.tend), y2: Y(-PI / 2), 'class': 'bdy'}, gOut);
+    // ticks: one per unit of each boundary's own time
+    var lastY = null, lastLab = -1e9;
+    for (var n = -40; n <= 60; n++){
+      var yl = Y(oldTau(n));
+      if (n >= -40 && n <= 40) el('line', {x1: X(-PI / 2), x2: X(-PI / 2) + 9, y1: yl, y2: yl, 'class': 'tick'}, gOut);
+      var yr = Y(newTau(n));
+      if (lastY !== null && Math.abs(yr - lastY) < 1.4) continue;
+      lastY = yr;
+      el('line', {x1: X(PI / 2) - 9, x2: X(PI / 2), y1: yr, y2: yr, 'class': 'tick'}, gOut);
+      if (Math.abs(yr - lastLab) > 15 && Math.abs(yr - Y(S.tend)) > 16 && Math.abs(yr - Y(-PI / 2)) > 10){
+        JT.text(gOut, X(PI / 2) + 7, yr + 4, (n < 0 ? '−' : '') + Math.abs(n), 'lab', {}); lastLab = yr;
+      }
+    }
+    JT.text(gOut, X(PI / 2) + 7, Y(S.tend) - 5, 't = ∞', 'lab', {});
+    el('circle', {cx: X(PI / 2) - 1.7, cy: Y(S.ts), r: 5, 'class': 'arr'}, gOut);
+    JT.text(gOut, X(PI / 2) - 12, Y(S.ts) + 4, 'pulse', 'lab ink', {'text-anchor': 'end'});
+
+    // readouts (phi_h = phi_r, so entropies in units of phi_r/4G)
+    var r = Math.sqrt(1 + st.es);
+    $('f3-eso').textContent = (st.es >= 0 ? '' : '−') + JT.fmt(Math.abs(st.es), 2);
+    $('f3-tso').textContent = JT.fmt(st.ts, 2) + ' ℓ/c';
+    $('r3-ph').textContent = JT.fmt(r, 3);
+    $('r3-b').textContent = JT.fmt(1 / r, 3);
+    $('r3-ds').textContent = JT.fmt(r - 1, 3) + ' φᵣ/4G';
+    $('r3-fl').textContent = JT.fmt(st.es / 2, 3) + ' φᵣ/4G';
+    $('r3-te').textContent = 'τ = ' + JT.fmt(S.tend, 3);
+    drawChart();
+  }
+
+  // Chart: phi along the right event horizon against the ingoing boundary time t_b
+  function drawChart(){
+    chart.textContent = '';
+    var cl = 42, cr = 312, ct = 10, cb = 164, u0 = -6, u1 = 3, c = S.tend - PI / 2;
+    var pts = [], lo = Infinity, hi = -Infinity;
+    for (var i = 0; i <= 240; i++){
+      var u = u0 + (u1 - u0) * i / 240, tb = st.ts + u;
+      var xp = newTau(tb) + PI / 2, q = nx(xp, c), v = phi(q[0], q[1]);
+      if (isFinite(v)){ pts.push([u, v]); lo = Math.min(lo, v); hi = Math.max(hi, v); }
+    }
+    lo = Math.min(lo, 1, S.ph); hi = Math.max(hi, 1, S.ph);
+    var pad = Math.max(0.05, (hi - lo) * 0.12); lo -= pad; hi += pad;
+    function cx(u){ return cl + (u - u0) / (u1 - u0) * (cr - cl); }
+    function cy(v){ return cb - (v - lo) / (hi - lo) * (cb - ct); }
+    el('rect', {x: cl, y: ct, width: cr - cl, height: cb - ct, 'class': 'strip'}, chart);
+    [1, S.ph].forEach(function(v, k){
+      el('line', {x1: cl, x2: cr, y1: cy(v), y2: cy(v), 'class': 'grid'}, chart);
+      JT.text(chart, cl - 5, cy(v) + 4, k ? 'φₕ′' : 'φₕ', 'lab', {'text-anchor': 'end'});
+    });
+    el('line', {x1: cx(0), x2: cx(0), y1: ct, y2: cb, 'class': 'now'}, chart);
+    JT.text(chart, cx(0) + 4, ct + 12, 'pulse thrown', 'lab sm', {});
+    el('polyline', {points: JT.pts(pts.map(function(p){ return [cx(p[0]), cy(p[1])]; })), 'class': 'wl'}, chart);
+    for (var u = -6; u <= 3; u += 3) JT.text(chart, cx(u), cb + 15, (u > 0 ? '+' : u < 0 ? '−' : '') + Math.abs(u), 'lab', {'text-anchor': 'middle'});
+    JT.text(chart, (cl + cr) / 2, cb + 30, 't − tₛ  (units of β/2π)', 'lab', {'text-anchor': 'middle'});
+  }
+
+  function bind(id, key){ var inp = $(id); inp.addEventListener('input', function(){ st[key] = parseFloat(inp.value); draw(); }); }
+  bind('f3-es', 'es'); bind('f3-ts', 'ts');
+  ['ctr', 'old'].forEach(function(k){ var cbx = $('f3-' + k); cbx.addEventListener('change', function(){ st[k] = cbx.checked; draw(); }); });
+  draw();
+})();

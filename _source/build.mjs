@@ -6,7 +6,7 @@ import katex from 'katex';
 const SRC = 'src', OUT = 'deploy';
 const SITE = 'https://faizan-bari.github.io/jt-gravity/';
 const PROJECT = 'A Black Hole in a Box';
-const VERSION = '0.1', DATE = '9 November 2026';
+const VERSION = '0.2', DATE = '9 November 2026';
 const EMAIL = 'fbarinitsgr@gmail.com';
 const ISSUES = 'https://github.com/faizan-bari/jt-gravity/issues';
 
@@ -17,6 +17,10 @@ const PAGES = [
    desc: 'Step 1: free particles in AdS2 oscillate with the same period whatever their speed, light reaches infinity in finite time, and everything refocuses.'},
   {src: 'black-hole.html', title: 'Where is the black hole?', nav: 'contents',
    desc: 'Step 2: in JT gravity the geometry is always AdS2. The black hole lives in the dilaton and the boundary. Horizons, temperature and infinite redshift.'},
+  {src: 'shock.html', title: 'Throw something in', nav: 'contents',
+   desc: 'Step 3: a shock wave thrown into a JT black hole leaves the geometry alone but moves the horizon, before it arrives. Negative energy makes the wormhole traversable.'},
+  {src: 'wormhole.html', title: 'Two sides, one wormhole', nav: 'contents',
+   desc: 'Step 4: the renormalised length of the JT wormhole grows forever, and behaves like a particle bouncing off an exponential wall.'},
   {src: 'conventions.html', title: 'Conventions', nav: 'conventions',
    desc: 'The JT action, boundary conditions, equations of motion and formulas used on these pages, with a conversion table to Harlow and Jafferis.'},
   {src: 'changes.html', title: 'Changes and corrections', nav: 'changes',
@@ -55,7 +59,8 @@ function renderMath(body, file) {
   out = smart(out);
   return out.replace(/\u0000(\d+)\u0000/g, (m, n) => {
     const {tex, display} = parts[+n];
-    try { return katex.renderToString(tex.trim(), {displayMode: display, throwOnError: true, strict: 'ignore'}); }
+    const t = tex.trim().replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+    try { return katex.renderToString(t, {displayMode: display, throwOnError: true, strict: 'ignore'}); }
     catch (e) { throw new Error(`${file}: ${e.message}\n  in: ${tex}`); }
   });
 }

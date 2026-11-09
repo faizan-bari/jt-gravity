@@ -1,0 +1,231 @@
+<!--BODY-->
+<section class="page-hero">
+  <p class="mono">Step 4 of 5</p>
+  <h1>Two sides, one wormhole</h1>
+  <p class="lede">The two boundaries of the black hole are joined through the interior by a wormhole. Its length is the one thing pure JT gravity can do: it shrinks, bounces and grows, like a particle thrown at a wall.</p>
+</section>
+
+<div class="prose">
+  <h2>Measuring the wormhole</h2>
+  <p>Pick a time on each boundary, \(t_L\) and \(t_R\). The spacelike geodesic between the two boundary points crosses the wormhole. Its length \(d\) diverges as \(\varepsilon\to0\), because both boundaries are infinitely far away, so the divergence has to be subtracted. In Harlow and Jafferis’s normalisation (see the table on the <a href="conventions.html">conventions page</a>), the renormalised length is</p>
+  \[ \tilde L=d-2\ln\left(2\Phi_\partial\right),\qquad \Phi_\partial=\frac{\phi_b}{\varepsilon},\qquad \phi_b=\frac{\phi_r}{16\pi G}. \tag{4.1} \]
+  <p>The result, derived below, is</p>
+  \[ \tilde L=2\ln\left[\frac{\cosh\big(\pi(t_L+t_R)/\beta\big)}{\Phi_h}\right],\qquad \Phi_h=\frac{2\pi\phi_b}{\beta}=\frac{\phi_h}{16\pi G}. \tag{4.2} \]
+</div>
+
+<figure class="fig">
+  <div class="fig-grid">
+    <svg id="f4" class="dia" viewBox="0 0 401 677" role="img" aria-labelledby="f4-cap"></svg>
+    <div class="panel">
+      <div class="ctl"><label for="f4-tl"><span>Left time \(t_L\)</span><output id="f4-tlo" for="f4-tl"></output></label>
+        <input id="f4-tl" type="range" min="-5" max="5" step="0.01" value="0"></div>
+      <div class="ctl"><label for="f4-tr"><span>Right time \(t_R\)</span><output id="f4-tro" for="f4-tr"></output></label>
+        <input id="f4-tr" type="range" min="-5" max="5" step="0.01" value="0"></div>
+      <div class="ctl"><label for="f4-beta"><span>Inverse temperature \(\beta\)</span><output id="f4-betao" for="f4-beta"></output></label>
+        <input id="f4-beta" type="range" min="2" max="20" step="0.0001" value="6.2832"></div>
+      <div class="row">
+        <button class="btn" id="f4-run" type="button">Run both clocks</button>
+        <button class="btn" id="f4-boost" type="button">Boost</button>
+        <button class="btn ghost" id="f4-reset" type="button">Reset</button>
+      </div>
+      <dl class="read">
+        <dt>\(t_L+t_R\)</dt><dd id="r4-sum"></dd>
+        <dt>\(\tilde L\) from (4.2)</dt><dd id="r4-L"></dd>
+        <dt>\(\tilde L\) measured on the geodesic</dt><dd id="r4-Lm"></dd>
+        <dt>Momentum \(P\), from (4.4)</dt><dd id="r4-P"></dd>
+        <dt>Energy \(H\), from (4.5)</dt><dd id="r4-H"></dd>
+      </dl>
+      <div>
+        <p class="mono" style="margin-bottom:.35rem">The wormhole as a particle</p>
+        <svg id="f4c" class="dia chart" viewBox="0 0 320 196" role="img" aria-label="Exponential potential, energy line and the current wormhole length"></svg>
+      </div>
+    </div>
+  </div>
+  <figcaption id="f4-cap"><strong>Figure 4.</strong> The two-sided black hole of step 2. <span class="key light"></span> the geodesic between the boundary points at \(t_L\) and \(t_R\); its renormalised length \(\tilde L\) is (4.2). The second readout recomputes it from the embedding coordinates of the two endpoints, with \(\varepsilon=10^{-6}\). The chart shows the wall \(2e^{-\tilde L}/\phi_b\), the energy \(H\) and the wormhole length as a particle (4.5), with \(\phi_b=1\). Times are in units of \(\ell/c\).</figcaption>
+</figure>
+
+<div class="prose">
+  <h2>Only \(t_L+t_R\) matters</h2>
+  <p>The length depends on the two times only through their sum. That comes from a symmetry: the boost that leaves the dilaton (2.3) unchanged moves the right boundary forward in time and the left one backward. In pure JT the two boundary energies are always equal, \(H_L=H_R\) (Harlow and Jafferis (2.20)), so evolving with \(H_R-H_L\) does nothing to the state. Press Boost: the geodesic slides along, and its length stays fixed.</p>
+
+  <h2>It grows forever</h2>
+  <p>At late times \(\cosh x\approx e^x/2\), so</p>
+  \[ \tilde L\approx\frac{2\pi}{\beta}\,(t_L+t_R)-2\ln\left(2\Phi_h\right). \tag{4.3} \]
+  <p>The wormhole grows linearly, at a rate set by the temperature, and it is shortest on the time-symmetric slice \(t_L+t_R=0\). This is the two-dimensional version of the growth of the Einstein–Rosen bridge behind the horizon (Hartman and Maldacena). Classically the growth never stops. At times of order \(e^{S_0}\), effects beyond the semiclassical approximation stop it (Iliesiu, Mezei and Sárosi).</p>
+
+  <h2>A particle bouncing off a wall</h2>
+  <p>Harlow and Jafferis show that pure JT gravity with two boundaries has a two-dimensional phase space, with \(\tilde L\) and</p>
+  \[ P=2\Phi_h\tanh\frac{\pi(t_L+t_R)}{\beta} \tag{4.4} \]
+  <p>as canonically conjugate variables. The total energy \(H=H_L+H_R\) becomes</p>
+  \[ H=\frac{P^2}{2\phi_b}+\frac{2}{\phi_b}\,e^{-\tilde L}. \tag{4.5} \]
+  <p>This is a non-relativistic particle of mass \(\phi_b\) in an exponential potential. Run the clocks forward and the “particle” comes in from \(\tilde L=\infty\), turns round at the wall where \(2e^{-\tilde L}/\phi_b=H\), and goes back out. The wormhole was long in the past (the white-hole era), is shortest at \(t_L+t_R=0\), and grows again. It is exactly solvable quantum mechanics as well: the energy eigenfunctions are modified Bessel functions of \(e^{-\tilde L/2}\) (Harlow and Jafferis §3.1), and that is how JT gravity with two boundaries is quantised.</p>
+
+  <details class="deriv">
+    <summary>Derivation of (4.2), and a check of (4.4)–(4.5)</summary>
+    <p>Set \(\ell=1\). A boundary point at time \(t\) sits where (C.7) equals \(\phi_r/\varepsilon\), that is \(\cos\sigma=\varepsilon\,(2\pi/\beta)\cos\tau\). Write (2.7) as \(\cos\tau=1/\cosh a\), \(\sin\tau=\tanh a\) with \(a=2\pi t/\beta\). Then, to leading order in \(\varepsilon\), the embedding coordinates (C.6) of the point are</p>
+    \[ T_1=\frac{\beta}{2\pi\varepsilon},\qquad T_2=\frac{\beta}{2\pi\varepsilon}\sinh a,\qquad X=\pm\frac{\beta}{2\pi\varepsilon}\cosh a, \tag{4.6} \]
+    <p>with \(+\) on the right boundary and \(-\) on the left. On the hyperboloid the geodesic distance between two points is fixed by their inner product, \(\cosh d=-X_L\cdot X_R=T_1T_1'+T_2T_2'-XX'\), so</p>
+    \[ \begin{aligned}\cosh d&=\left(\frac{\beta}{2\pi\varepsilon}\right)^2\left(1+\sinh a_L\sinh a_R+\cosh a_L\cosh a_R\right)\\ &=2\left(\frac{\beta}{2\pi\varepsilon}\right)^2\cosh^2\frac{a_L+a_R}{2}.\end{aligned} \tag{4.7} \]
+    <p>Since \(d\) is large, \(d=\ln(2\cosh d)=2\ln(\beta/\pi\varepsilon)+2\ln\cosh\big(\pi(t_L+t_R)/\beta\big)\). Subtracting \(2\ln(2\phi_b/\varepsilon)\) and using \(\Phi_h=2\pi\phi_b/\beta\) gives (4.2). It matches Harlow and Jafferis (2.32) with \(\delta=(t_L+t_R)/2\).</p>
+    <p>For (4.4)–(4.5), take \(\delta=(t_L+t_R)/2\) as the time that \(H\) generates, since \(H=H_L+H_R\) moves both clocks forward together. Differentiating (4.2) gives \(d\tilde L/d\delta=P/\phi_b\) and \(dP/d\delta=(2/\phi_b)\,e^{-\tilde L}=-\partial H/\partial\tilde L\), which are Hamilton’s equations for (4.5). Substituting (4.2) and (4.4) gives \(H=2\Phi_h^2/\phi_b\), which is twice the one-sided energy \(E\) of (C.10). The figure checks this numerically as you move the sliders.</p>
+  </details>
+
+  <h2>Why matter changes everything</h2>
+  <p>In pure JT, \(H_L=H_R\) always. So the two-sided Hilbert space does not split into a left part and a right part; Harlow and Jafferis call this the factorisation problem. Matter changes that. The pulse of step 3 is the simplest state in which the two boundaries have different energies: afterwards the right boundary has \(E+E_s\) and the left still has \(E\). With quantum matter fields, Penington and Witten show that the observables of one boundary, its Hamiltonian together with matter operators dressed to that boundary, form a Type II\(_\infty\) von Neumann algebra. That algebra has a trace, and therefore a well-defined entropy.</p>
+
+  <h2>Sources</h2>
+  <ol class="refs">
+    <li>D. Harlow and D. Jafferis, “The factorization problem in Jackiw–Teitelboim gravity”, <a href="https://arxiv.org/abs/1804.01081">arXiv:1804.01081</a>, §§2.2 and 3.1, eqs. (2.20)–(2.35).</li>
+    <li>T. Hartman and J. Maldacena, “Time evolution of entanglement entropy from black hole interiors”, <a href="https://arxiv.org/abs/1303.1080">arXiv:1303.1080</a>.</li>
+    <li>L. Iliesiu, M. Mezei and G. Sárosi, “The volume of the black hole interior at late times”, <a href="https://arxiv.org/abs/2107.06286">arXiv:2107.06286</a>.</li>
+    <li>G. Penington and E. Witten, “Algebras and states in JT gravity”, <a href="https://arxiv.org/abs/2301.07257">arXiv:2301.07257</a>.</li>
+    <li>D. Kolchmeyer, “von Neumann algebras in JT gravity”, <a href="https://arxiv.org/abs/2303.04701">arXiv:2303.04701</a>.</li>
+  </ol>
+</div>
+
+<nav class="pager" aria-label="Steps"><a href="shock.html">← Step 3: Throw something in</a><a href="index.html">Contents</a></nav>
+<!--JS-->
+(function(){
+  var PI = Math.PI, el = JT.el, svg = document.getElementById('f4'), chart = document.getElementById('f4c');
+  var K = 100, L = 40, T = 14;
+  function X(s){ return L + (s + PI / 2) * K; }
+  function Y(t){ return T + (PI - t) * K; }
+  function P(s, t){ return [X(s), Y(t)]; }
+  function $(id){ return document.getElementById(id); }
+
+  // Static frame, as in step 2
+  var defs = el('defs', {}, svg), pat = el('pattern', {id: 'hatch-f4', width: 7, height: 7, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)'}, defs);
+  el('line', {x1: 0, y1: 0, x2: 0, y2: 7, 'class': 'hatch'}, pat);
+  el('rect', {x: X(-PI / 2), y: Y(PI), width: PI * K, height: 2 * PI * K, 'class': 'strip'}, svg);
+  [[1, 1], [-1, 1], [1, -1], [-1, -1]].forEach(function(q){
+    el('polygon', {points: JT.pts([P(q[0] * PI / 2, q[1] * PI / 2), P(q[0] * PI / 2, q[1] * PI), P(0, q[1] * PI)]), fill: 'url(#hatch-f4)'}, svg);
+  });
+  el('polyline', {points: JT.pts([P(-PI / 2, -PI / 2), P(PI / 2, PI / 2)]), 'class': 'hz'}, svg);
+  el('polyline', {points: JT.pts([P(-PI / 2, PI / 2), P(PI / 2, -PI / 2)]), 'class': 'hz'}, svg);
+  el('polyline', {points: JT.pts([P(-PI / 2, PI / 2), P(0, PI), P(PI / 2, PI / 2)]), 'class': 'ihz'}, svg);
+  el('polyline', {points: JT.pts([P(-PI / 2, -PI / 2), P(0, -PI), P(PI / 2, -PI / 2)]), 'class': 'ihz'}, svg);
+  [-1, 1].forEach(function(s){ el('line', {x1: X(s * PI / 2) - s * 1.7, x2: X(s * PI / 2) - s * 1.7, y1: Y(PI / 2), y2: Y(-PI / 2), 'class': 'bdy'}, svg); });
+  [['−π', -PI], ['−π/2', -PI / 2], ['0', 0], ['π/2', PI / 2], ['π', PI]].forEach(function(a){
+    JT.text(svg, L - 6, Y(a[1]) + 4, a[0], 'lab', {'text-anchor': 'end'});
+  });
+  [['−π/2', -PI / 2], ['0', 0], ['π/2', PI / 2]].forEach(function(a){ JT.text(svg, X(a[1]), Y(-PI) + 17, a[0], 'lab', {'text-anchor': 'middle'}); });
+  JT.text(svg, X(0), Y(-PI) + 30, 'σ', 'lab', {'text-anchor': 'middle'});
+  JT.text(svg, X(PI / 2) + 7, Y(PI / 2) - 6, 't = ∞', 'lab', {});
+  var gT = el('g', {}, svg), gG = el('g', {}, svg);
+
+  var st = {beta: 6.2832, tL: 0, tR: 0};
+  function tauOf(t){ return 2 * Math.atan(Math.tanh(PI * t / st.beta)); }
+  function bpt(t, side, eps){     // embedding coordinates of a boundary point, eq. (4.6) without dropping O(eps^2)
+    var a = 2 * PI * t / st.beta, k = st.beta / (2 * PI * eps), c = eps * (2 * PI / st.beta) / Math.cosh(a);
+    return [k, k * Math.sinh(a), side * k * Math.cosh(a) * Math.sqrt(1 - c * c)];
+  }
+  function dot(a, b){ return -a[0] * b[0] - a[1] * b[1] + a[2] * b[2]; }
+  function lncosh(x){ x = Math.abs(x); return x + Math.log1p(Math.exp(-2 * x)) - Math.LN2; }
+  function acosh(x){ return Math.log(x + Math.sqrt(x * x - 1)); }
+
+  function drawTicks(){
+    gT.textContent = '';
+    var lastLab = -1e9, prevY = null;
+    for (var n = -60; n <= 60; n++){
+      var y = Y(tauOf(n));
+      if (prevY !== null && Math.abs(y - prevY) < 1.4) continue;
+      prevY = y;
+      el('line', {x1: X(PI / 2) - 9, x2: X(PI / 2), y1: y, y2: y, 'class': 'tick'}, gT);
+      el('line', {x1: X(-PI / 2), x2: X(-PI / 2) + 9, y1: y, y2: y, 'class': 'tick'}, gT);
+      if (Math.abs(y - lastLab) > 15 && Math.abs(y - Y(PI / 2)) > 16 && Math.abs(y - Y(-PI / 2)) > 16){
+        JT.text(gT, X(PI / 2) + 7, y + 4, (n < 0 ? '−' : '') + Math.abs(n), 'lab', {}); lastLab = y;
+      }
+    }
+  }
+  function draw(){
+    gG.textContent = '';
+    var eps = 0.004, XL = bpt(st.tL, -1, eps), XR = bpt(st.tR, 1, eps), d = acosh(-dot(XL, XR)), pts = [];
+    var sd = Math.sinh(d);
+    for (var i = 0; i <= 500; i++){
+      var s = d * i / 500, a = Math.sinh(d - s) / sd, b = Math.sinh(s) / sd;
+      var x = [a * XL[0] + b * XR[0], a * XL[1] + b * XR[1], a * XL[2] + b * XR[2]];
+      var r = Math.sqrt(x[0] * x[0] + x[1] * x[1]);
+      pts.push(P(Math.asin(Math.max(-1, Math.min(1, x[2] / r))), Math.atan2(x[1], x[0])));
+    }
+    el('polyline', {points: JT.pts(pts), 'class': 'lt', 'stroke-width': 2.6}, gG);
+    var yl = Y(tauOf(st.tL)), yr = Y(tauOf(st.tR));
+    el('circle', {cx: X(-PI / 2) + 1.7, cy: yl, r: 6, 'class': 'dot'}, gG);
+    el('circle', {cx: X(PI / 2) - 1.7, cy: yr, r: 6, 'class': 'dot'}, gG);
+    JT.text(gG, X(-PI / 2) + 12, yl - 8, 'tₗ', 'lab ink', {});
+    JT.text(gG, X(PI / 2) - 12, yr - 8, 'tᵣ', 'lab ink', {'text-anchor': 'end'});
+
+    // numbers (phi_b = 1)
+    var Ph = 2 * PI / st.beta, sum = st.tL + st.tR, x = PI * sum / st.beta;
+    var Lt = 2 * (lncosh(x) - Math.log(Ph));
+    var e6 = 1e-6, Lm = acosh(-dot(bpt(st.tL, -1, e6), bpt(st.tR, 1, e6))) - 2 * Math.log(2 / e6);
+    var Pm = 2 * Ph * Math.tanh(x), H = Pm * Pm / 2 + 2 * Math.exp(-Lt);
+    $('f4-tlo').textContent = JT.fmt(st.tL, 2) + ' ℓ/c';
+    $('f4-tro').textContent = JT.fmt(st.tR, 2) + ' ℓ/c';
+    $('f4-betao').textContent = JT.fmt(st.beta, 2) + ' ℓ/c';
+    $('r4-sum').textContent = JT.fmt(sum, 2) + ' ℓ/c';
+    $('r4-L').textContent = JT.fmt(Lt, 4);
+    $('r4-Lm').textContent = JT.fmt(Lm, 4);
+    $('r4-P').textContent = JT.fmt(Pm, 4);
+    $('r4-H').textContent = JT.fmt(H, 4) + '  (2Φₕ² = ' + JT.fmt(2 * Ph * Ph, 4) + ')';
+    drawChart(Lt, Pm, H, Ph);
+  }
+  function drawChart(Lt, Pm, H, Ph){
+    chart.textContent = '';
+    var cl = 30, cr = 312, ct = 10, cb = 164, Lmin = -2 * Math.log(Ph), x0 = Lmin - 1.5, x1 = Lmin + 9, y1 = 2.2 * H;
+    function cx(v){ return cl + (v - x0) / (x1 - x0) * (cr - cl); }
+    function cy(v){ return cb - Math.min(v, y1) / y1 * (cb - ct); }
+    el('rect', {x: cl, y: ct, width: cr - cl, height: cb - ct, 'class': 'strip'}, chart);
+    var pv = [];
+    for (var i = 0; i <= 200; i++){ var l = x0 + (x1 - x0) * i / 200; pv.push([cx(l), cy(2 * Math.exp(-l))]); }
+    el('polyline', {points: JT.pts(pv), 'class': 'edge'}, chart);
+    el('line', {x1: cl, x2: cr, y1: cy(H), y2: cy(H), 'class': 'hz', 'stroke-dasharray': '5 4'}, chart);
+    JT.text(chart, cr - 4, cy(H) - 6, 'energy H', 'lab', {'text-anchor': 'end'});
+    JT.text(chart, cx(Lmin - Math.log(1.6)) + 9, cy(1.6 * H) + 4, 'wall', 'lab', {});
+    var px = cx(Math.min(Lt, x1)), py = cy(H);
+    if (Lt <= x1){
+      el('circle', {cx: px, cy: py, r: 6, 'class': 'dot'}, chart);
+      if (Math.abs(Pm) > 1e-3){
+        var dir = Pm > 0 ? 1 : -1;
+        el('path', {d: 'M' + (px + dir * 10) + ' ' + (py - 5) + 'L' + (px + dir * 18) + ' ' + py + 'L' + (px + dir * 10) + ' ' + (py + 5) + 'Z', 'class': 'arr'}, chart);
+      }
+    } else {
+      JT.text(chart, cr - 4, py + 16, '→ off the chart', 'lab', {'text-anchor': 'end'});
+    }
+    if (Lt <= x1) el('line', {x1: cx(Lt), x2: cx(Lt), y1: py, y2: cb, 'class': 'now'}, chart);
+    for (var t = Math.ceil(x0); t <= x1; t += 2) JT.text(chart, cx(t), cb + 15, (t < 0 ? '−' : '') + Math.abs(t), 'lab', {'text-anchor': 'middle'});
+    JT.text(chart, (cl + cr) / 2, cb + 30, 'renormalised length L̃', 'lab', {'text-anchor': 'middle'});
+  }
+
+  // Controls
+  var tlIn = $('f4-tl'), trIn = $('f4-tr'), bIn = $('f4-beta'), runBtn = $('f4-run'), boostBtn = $('f4-boost'), raf = 0, last = 0, mode = null, bdir = 1;
+  function sync(){ tlIn.value = st.tL; trIn.value = st.tR; draw(); }
+  function stop(){ if (raf) cancelAnimationFrame(raf); raf = 0; last = 0; mode = null; runBtn.textContent = 'Run both clocks'; boostBtn.textContent = 'Boost'; }
+  function frame(ts){
+    if (!last) last = ts;
+    var dt = (ts - last) / 1000 * 0.8; last = ts;
+    if (mode === 'run'){
+      st.tL += dt; st.tR += dt;
+      if (Math.max(st.tL, st.tR) >= 5){ st.tL = Math.min(st.tL, 5); st.tR = Math.min(st.tR, 5); sync(); stop(); return; }
+    } else {
+      st.tL -= bdir * dt; st.tR += bdir * dt;
+      if (st.tR >= 5 || st.tL <= -5 || st.tR <= -5 || st.tL >= 5){ bdir = -bdir; st.tL = Math.max(-5, Math.min(5, st.tL)); st.tR = Math.max(-5, Math.min(5, st.tR)); }
+    }
+    sync();
+    if (raf) raf = requestAnimationFrame(frame);
+  }
+  runBtn.addEventListener('click', function(){
+    if (mode === 'run'){ stop(); return; }
+    stop();
+    if (Math.max(st.tL, st.tR) >= 4.99){ st.tL = -4; st.tR = -4; }
+    mode = 'run'; runBtn.textContent = 'Pause'; raf = requestAnimationFrame(frame);
+  });
+  boostBtn.addEventListener('click', function(){
+    if (mode === 'boost'){ stop(); return; }
+    stop(); mode = 'boost'; boostBtn.textContent = 'Pause'; raf = requestAnimationFrame(frame);
+  });
+  $('f4-reset').addEventListener('click', function(){ stop(); st.tL = 0; st.tR = 0; st.beta = 6.2832; bIn.value = st.beta; drawTicks(); sync(); });
+  tlIn.addEventListener('input', function(){ stop(); st.tL = parseFloat(tlIn.value); draw(); });
+  trIn.addEventListener('input', function(){ stop(); st.tR = parseFloat(trIn.value); draw(); });
+  bIn.addEventListener('input', function(){ st.beta = parseFloat(bIn.value); drawTicks(); draw(); });
+  drawTicks(); draw();
+})();
